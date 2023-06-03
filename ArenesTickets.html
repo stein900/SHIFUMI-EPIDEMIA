@@ -261,7 +261,7 @@
     function handleValidateTicket() {
       const ticket = this.parentNode.parentNode;
       const status = ticket.querySelector('.status');
-      status.textContent = 'Validé';
+      status.textContent = 'Validé ✓';
       status.classList.remove('status-pending', 'status-in-progress');
       status.classList.add('status-completed');
     }
@@ -325,7 +325,7 @@
   actions.classList.add('actions');
   actions.innerHTML = `
   <div class="status status-pending"><center>En attente</center></div>
-  <div class="status .white-text">..........................</div>
+  <div class="status .white-text">............................</div>
     <button class="btn btn-view">Voir plus</button>
     <button class="btn btn-delete">Supprimer</button>
     <button class="btn btn-validate">Valider</button>
@@ -589,5 +589,47 @@ function generateTicketDetails(ticketData) {
       document.getElementById('problem-detail').value = '';
     }
   </script>
+
+<!-- <?php
+// Connexion à la base de données
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "database_name";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Récupération des données du formulaire
+$orderNumber = $_POST['order_number'];
+$date = $_POST['date'];
+$message = $_POST['message'];
+$firstName = $_POST['first_name'];
+$lastName = $_POST['last_name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$mobile = $_POST['mobile'];
+$device = $_POST['device'];
+$password = $_POST['password'];
+$pinCode = $_POST['pin_code'];
+$problemTitle = $_POST['problem_title'];
+$problemDetail = $_POST['problem_detail'];
+$status = "En attente";
+
+// Requête d'insertion
+$sql = "INSERT INTO tickets (order_number, date, message, first_name, last_name, email, phone, mobile, device, password, pin_code, problem_title, problem_detail, status)
+        VALUES ('$orderNumber', '$date', '$message', '$firstName', '$lastName', '$email', '$phone', '$mobile', '$device', '$password', '$pinCode', '$problemTitle', '$problemDetail', '$status')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Nouveau ticket ajouté avec succès.";
+} else {
+    echo "Erreur lors de l'ajout du ticket: " . $conn->error;
+}
+
+$conn->close();
+?> -->
+
 </body>
 </html>
