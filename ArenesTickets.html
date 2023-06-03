@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +35,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .invisible{
+      display:none;
     }
 
     .ticket .title {
@@ -121,14 +124,102 @@
       color: #333;
       text-decoration: none;
     }
+
+    .ticket .status-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   </style>
 </head>
 <body>
   <header>
     <h1>Gestion des Tickets de Support</h1>
   </header>
+  <br>
+  <center><a href="#" class="home-link">Accueil</a></center>
+  
   <div class="container">
     <div id="tickets-container">
+      <center><button class="btn btn-new">Nouveau Ticket</button></center> <br>
+      <div class="ticket">
+        <div>
+          <div class="title">Problème de connexion réseau</div>
+          <div class="date">01/06/2023</div>
+        </div>
+        <div class="status status-pending">En attente</div>
+        <div class="actions">
+          <button class="btn btn-view">Voir plus</button>
+          <button class="btn btn-delete">Supprimer</button>
+          <button class="btn btn-validate">Valider</button>
+          <button class="btn btn-in-progress">En cours</button>
+        </div>
+      </div>
+      <div class="ticket">
+        <div>
+          <div class="title">Problème de connexion réseau</div>
+          <div class="date">01/06/2023</div>
+        </div>
+        <div class="status status-pending">En attente</div>
+        <div class="actions">
+          <button class="btn btn-view">Voir plus</button>
+          <button class="btn btn-delete">Supprimer</button>
+          <button class="btn btn-validate">Valider</button>
+          <button class="btn btn-in-progress">En cours</button>
+        </div>
+      </div>
+      <div class="ticket">
+        <div>
+          <div class="title">Problème de connexion réseau</div>
+          <div class="date">01/06/2023</div>
+        </div>
+        <div class="status status-pending">En attente</div>
+        <div class="actions">
+          <button class="btn btn-view">Voir plus</button>
+          <button class="btn btn-delete">Supprimer</button>
+          <button class="btn btn-validate">Valider</button>
+          <button class="btn btn-in-progress">En cours</button>
+        </div>
+      </div>
+      <div class="ticket">
+        <div>
+          <div class="title">Problème de connexion réseau</div>
+          <div class="date">01/06/2023</div>
+        </div>
+        <div class="status status-pending">En attente</div>
+        <div class="actions">
+          <button class="btn btn-view">Voir plus</button>
+          <button class="btn btn-delete">Supprimer</button>
+          <button class="btn btn-validate">Valider</button>
+          <button class="btn btn-in-progress">En cours</button>
+        </div>
+      </div>
+      <div class="ticket">
+        <div>
+          <div class="title">Problème de connexion réseau</div>
+          <div class="date">01/06/2023</div>
+        </div>
+        <div class="status status-pending">En attente</div>
+        <div class="actions">
+          <button class="btn btn-view">Voir plus</button>
+          <button class="btn btn-delete">Supprimer</button>
+          <button class="btn btn-validate">Valider</button>
+          <button class="btn btn-in-progress">En cours</button>
+        </div>
+      </div>
+      <div class="ticket">
+        <div>
+          <div class="title">Problème de connexion réseau</div>
+          <div class="date">01/06/2023</div>
+        </div>
+        <div class="status status-pending">En attente</div>
+        <div class="actions">
+          <button class="btn btn-view">Voir plus</button>
+          <button class="btn btn-delete">Supprimer</button>
+          <button class="btn btn-validate">Valider</button>
+          <button class="btn btn-in-progress">En cours</button>
+        </div>
+      </div>
       <div class="ticket">
         <div>
           <div class="title">Problème de connexion réseau</div>
@@ -143,20 +234,18 @@
         </div>
       </div>
     </div>
-
-    <button class="btn btn-new">Nouveau Ticket</button>
+    
 
     <div id="form-container" class="form-container">
-      <h2>Ajouter un nouveau ticket</h2>
       <form id="ticket-form">
         <section>
           <h3>Base</h3>
           <label for="order-number">N° commande :</label>
-          <input type="text" id="order-number" required>
-          <label for="date">Date :</label>
+          <input type="text" id="order-number">
+          <label for="date">Date* :</label>
           <input type="date" id="date" required>
           <label for="message">Message :</label>
-          <textarea id="message" required></textarea>
+          <textarea id="message"></textarea>
         </section>
         <section>
           <h3>Coordonnées</h3>
@@ -165,35 +254,34 @@
           <label for="mrs"><input type="radio" name="gender" id="mrs"> Mme</label>
           <label for="other"><input type="radio" name="gender" id="other"> Autre</label>
           <label for="first-name">Prénom :</label>
-          <input type="text" id="first-name" required>
+          <input type="text" id="first-name">
           <label for="last-name">Nom :</label>
-          <input type="text" id="last-name" required>
+          <input type="text" id="last-name">
           <label for="email">E-mail :</label>
-          <input type="text" id="email" required>
+          <input type="text" id="email">
           <label for="phone">Téléphone :</label>
-          <input type="text" id="phone" required>
+          <input type="text" id="phone">
           <label for="mobile">Portable :</label>
           <input type="text" id="mobile">
         </section>
         <section>
           <h3>Matériel déposé</h3>
           <label for="device">Matériel :</label>
-          <input type="text" id="device" required>
+          <input type="text" id="device">
           <label for="password">Mot de passe :</label>
-          <input type="password" id="password" required>
+          <input type="password" id="password">
           <label for="pin-code">Code PIN :</label>
           <input type="text" id="pin-code">
         </section>
         <section>
           <h3>Problème</h3>
-          <label for="problem-title">Titre du problème :</label>
+          <label for="problem-title">Titre du problème* :</label>
           <input type="text" id="problem-title" required>
           <label for="problem-detail">Détail du problème :</label>
-          <textarea id="problem-detail" required></textarea>
+          <textarea id="problem-detail"></textarea>
         </section>
         <input type="submit" value="Enregistrer">
       </form>
-      <a href="#" class="home-link">Accueil</a>
     </div>
     <div id="ticket-details-container" class="form-container"></div>
   </div>
@@ -207,6 +295,13 @@
     const homeLink = document.querySelector('.home-link');
     const ticketForm = document.getElementById('ticket-form');
 
+        // Gestionnaire d'événement pour le bouton Accueil
+        homeLink.addEventListener('click', () => {
+      ticketsContainer.style.display = 'block';
+      formContainer.style.display = 'none';
+      clearForm();
+    });
+
     // Ajouter un gestionnaire d'événement pour le bouton "Nouveau Ticket"
     newTicketButton.addEventListener('click', () => {
       ticketsContainer.style.display = 'none';
@@ -216,10 +311,19 @@
 
     // Ajouter un gestionnaire d'événement pour le bouton "Voir plus"
     function handleViewTicketDetails() {
-      ticketsContainer.style.display = 'none';
-      formContainer.style.display = 'none';
-      ticketDetailsContainer.style.display = 'block';
+      const ticket = this.parentNode.parentNode;
+  const ticketData = getTicketData(ticket); // Récupérer les données du ticket spécifique
+  const ticketDetails = generateTicketDetails(ticketData); // Générer les détails du ticket spécifique
+
+  // Afficher uniquement les détails du ticket spécifique
+  ticketsContainer.style.display = 'none';
+  formContainer.style.display = 'none';
+  ticketDetailsContainer.style.display = 'block';
+  ticketDetailsContainer.innerHTML = ''; // Effacer les détails précédents
+  ticketDetailsContainer.appendChild(ticketDetails);
+
     }
+    
 
     // Ajouter un gestionnaire d'événement pour le bouton "Supprimer"
     function handleDeleteTicket() {
@@ -251,7 +355,6 @@
       addNewTicket();
       ticketsContainer.style.display = 'block';
       formContainer.style.display = 'none';
-      clearForm();
     });
 
     function addNewTicket() {
@@ -277,13 +380,27 @@
     <div>
       <div class="title">${problemTitle}</div>
       <div class="date">${date}</div>
+      <div class="problem-detail invisible">${problemDetail}</div>
+      <div class="phone invisible">${phone}</div>
+      <div class="order-number invisible">${orderNumber}</div>
+      <div class="message invisible">${message}</div>
+      <div class="first-name invisible">${firstName}</div>
+      <div class="last-name invisible">${lastName}</div>
+      <div class="email invisible">${email}</div>
+      <div class="mobile invisible">${mobile}</div>
+      <div class="device invisible">${device}</div>
+      <div class="password invisible">${password}</div>
+      <div class="pin-code invisible">${pinCode}</div>
     </div>
-    <div class="status status-pending">En attente</div>
+    <div class="status-container">
+      <div class="status status-pending"><center>En attente</center></div>
+    </div>
   `;
 
   const actions = document.createElement('div');
   actions.classList.add('actions');
   actions.innerHTML = `
+    
     <button class="btn btn-view">Voir plus</button>
     <button class="btn btn-delete">Supprimer</button>
     <button class="btn btn-validate">Valider</button>
@@ -295,6 +412,7 @@
 
   const ticketsContainer = document.getElementById('tickets-container');
   ticketsContainer.appendChild(ticket);
+  updateButtonsListener();
 }
 
 
@@ -400,26 +518,126 @@
     });
 
     // Ajouter des gestionnaires d'événements pour les boutons "Voir plus", "Supprimer" et "Valider"
-    const viewButtons = document.querySelectorAll('.btn-view');
-    const deleteButtons = document.querySelectorAll('.btn-delete');
-    const validateButtons = document.querySelectorAll('.btn-validate');
-    const inProgressButtons = document.querySelectorAll('.btn-in-progress');
+    function updateButtonsListener()
+    {
+      const viewButtons = document.querySelectorAll('.btn-view');
+  viewButtons.forEach(button => {
+    button.removeEventListener('click', handleViewTicketDetails);
+    button.addEventListener('click', handleViewTicketDetails);
+  });
 
-    viewButtons.forEach((button) => {
-      button.addEventListener('click', handleViewTicketDetails);
-    });
+  const deleteButtons = document.querySelectorAll('.btn-delete');
+  deleteButtons.forEach(button => {
+    button.removeEventListener('click', handleDeleteTicket);
+    button.addEventListener('click', handleDeleteTicket);
+  });
 
-    deleteButtons.forEach((button) => {
-      button.addEventListener('click', handleDeleteTicket);
-    });
+  const validateButtons = document.querySelectorAll('.btn-validate');
+  validateButtons.forEach(button => {
+    button.removeEventListener('click', handleValidateTicket);
+    button.addEventListener('click', handleValidateTicket);
+  });
 
-    validateButtons.forEach((button) => {
-      button.addEventListener('click', handleValidateTicket);
-    });
+  const inProgressButtons = document.querySelectorAll('.btn-in-progress');
+  inProgressButtons.forEach(button => {
+    button.removeEventListener('click', handleInProgressTicket);
+    button.addEventListener('click', handleInProgressTicket);
+  });
+    }
 
-    inProgressButtons.forEach((button) => {
-      button.addEventListener('click', handleInProgressTicket);
-    });
+    updateButtonsListener();
+
+    function getTicketData(ticket) {
+  const problemTitle = ticket.querySelector('.title').textContent;
+  const date = ticket.querySelector('.date').textContent;
+  const status = ticket.querySelector('.status').textContent;
+  const problemDetai = ticket.querySelector('.problem-detail').textContent;
+  const orderNumber = ticket.querySelector('.order-number').textContent;
+  const phoneF = ticket.querySelector('.phone').textContent;
+  const message = ticket.querySelector('.message').textContent;
+  const firstName = ticket.querySelector('.first-name').textContent;
+  const lastName = ticket.querySelector('.last-name').textContent;
+  const email = ticket.querySelector('.email').textContent;
+  const mobile = ticket.querySelector('.mobile').textContent;
+  const device = ticket.querySelector('.device').textContent;
+  const password = ticket.querySelector('.password').textContent;
+  const pinCode = ticket.querySelector('.pin-code').textContent;
+
+  // Retourner les données du ticket
+  return {
+    problemTitle,
+    date,
+    problemDetai,
+    status,
+    phoneF,
+    orderNumber,
+    message,
+    firstName,
+    lastName,
+    email,
+    mobile,
+    device,
+    password,
+    pinCode
+  };
+}
+
+function generateTicketDetails(ticketData) {
+  const {
+        orderNumber,
+        date,
+        message,
+        firstName,
+        lastName,
+        email,
+        phoneF,
+        mobile,
+        device,
+        password,
+        pinCode,
+        problemTitle,
+        problemDetai,
+        status
+      } = ticketData;
+
+  const ticketDetails = document.createElement('div');
+  ticketDetails.classList.add('ticket-details');
+  ticketDetails.innerHTML = `
+  <h2>Détails du ticket</h2>
+        <section>
+          <h3>Base</h3>
+          <p><strong>N° commande :</strong> ${orderNumber}</p>
+          <p><strong>Date :</strong> ${date}</p>
+          <p><strong>Message :</strong> ${message}</p>
+        </section>
+        <section>
+          <h3>Coordonnées</h3>
+          <p><strong>Genre :</strong> ${firstName}</p>
+          <p><strong>Prénom :</strong> ${firstName}</p>
+          <p><strong>Nom :</strong> ${lastName}</p>
+          <p><strong>E-mail :</strong> ${email}</p>
+          <p><strong>Téléphone :</strong> ${phoneF}</p>
+          <p><strong>Portable :</strong> ${mobile}</p>
+        </section>
+        <section>
+          <h3>Matériel déposé</h3>
+          <p><strong>Matériel :</strong> ${device}</p>
+          <p><strong>Mot de passe :</strong> ${password}</p>
+          <p><strong>Code PIN :</strong> ${pinCode}</p>
+        </section>
+        <section>
+          <h3>Problème</h3>
+          <p><strong>Titre du problème :</strong> ${problemTitle}</p>
+          <p><strong>Détail du problème :</strong> ${problemDetai}</p>
+        </section>
+        <section>
+          <h3>Statut</h3>
+          <p><strong>Statut :</strong> ${status}</p>
+        </section>
+  `;
+
+  return ticketDetails;
+}
 
     // Gérer le retour à l'accueil
     homeLink.addEventListener('click', (e) => {
@@ -428,6 +646,23 @@
       formContainer.style.display = 'none';
       ticketDetailsContainer.style.display = 'none';
     });
+
+        // Fonction pour réinitialiser les champs du formulaire
+        function clearForm() {
+      document.getElementById('order-number').value = '';
+      document.getElementById('date').value = '';
+      document.getElementById('message').value = '';
+      document.getElementById('first-name').value = '';
+      document.getElementById('last-name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('mobile').value = '';
+      document.getElementById('device').value = '';
+      document.getElementById('password').value = '';
+      document.getElementById('pin-code').value = '';
+      document.getElementById('problem-title').value = '';
+      document.getElementById('problem-detail').value = '';
+    }
   </script>
 </body>
 </html>
