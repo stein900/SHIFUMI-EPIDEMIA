@@ -58,6 +58,10 @@
       font-weight: bold;
     }
 
+    .white-text {
+      background-color: rgb(255, 255, 255);
+    }
+
     .status-pending {
       background-color: red;
     }
@@ -142,84 +146,6 @@
   <div class="container">
     <div id="tickets-container">
       <center><button class="btn btn-new">Nouveau Ticket</button></center> <br>
-      <div class="ticket">
-        <div>
-          <div class="title">Problème de connexion réseau</div>
-          <div class="date">01/06/2023</div>
-        </div>
-        <div class="status status-pending">En attente</div>
-        <div class="actions">
-          <button class="btn btn-view">Voir plus</button>
-          <button class="btn btn-delete">Supprimer</button>
-          <button class="btn btn-validate">Valider</button>
-          <button class="btn btn-in-progress">En cours</button>
-        </div>
-      </div>
-      <div class="ticket">
-        <div>
-          <div class="title">Problème de connexion réseau</div>
-          <div class="date">01/06/2023</div>
-        </div>
-        <div class="status status-pending">En attente</div>
-        <div class="actions">
-          <button class="btn btn-view">Voir plus</button>
-          <button class="btn btn-delete">Supprimer</button>
-          <button class="btn btn-validate">Valider</button>
-          <button class="btn btn-in-progress">En cours</button>
-        </div>
-      </div>
-      <div class="ticket">
-        <div>
-          <div class="title">Problème de connexion réseau</div>
-          <div class="date">01/06/2023</div>
-        </div>
-        <div class="status status-pending">En attente</div>
-        <div class="actions">
-          <button class="btn btn-view">Voir plus</button>
-          <button class="btn btn-delete">Supprimer</button>
-          <button class="btn btn-validate">Valider</button>
-          <button class="btn btn-in-progress">En cours</button>
-        </div>
-      </div>
-      <div class="ticket">
-        <div>
-          <div class="title">Problème de connexion réseau</div>
-          <div class="date">01/06/2023</div>
-        </div>
-        <div class="status status-pending">En attente</div>
-        <div class="actions">
-          <button class="btn btn-view">Voir plus</button>
-          <button class="btn btn-delete">Supprimer</button>
-          <button class="btn btn-validate">Valider</button>
-          <button class="btn btn-in-progress">En cours</button>
-        </div>
-      </div>
-      <div class="ticket">
-        <div>
-          <div class="title">Problème de connexion réseau</div>
-          <div class="date">01/06/2023</div>
-        </div>
-        <div class="status status-pending">En attente</div>
-        <div class="actions">
-          <button class="btn btn-view">Voir plus</button>
-          <button class="btn btn-delete">Supprimer</button>
-          <button class="btn btn-validate">Valider</button>
-          <button class="btn btn-in-progress">En cours</button>
-        </div>
-      </div>
-      <div class="ticket">
-        <div>
-          <div class="title">Problème de connexion réseau</div>
-          <div class="date">01/06/2023</div>
-        </div>
-        <div class="status status-pending">En attente</div>
-        <div class="actions">
-          <button class="btn btn-view">Voir plus</button>
-          <button class="btn btn-delete">Supprimer</button>
-          <button class="btn btn-validate">Valider</button>
-          <button class="btn btn-in-progress">En cours</button>
-        </div>
-      </div>
       <div class="ticket">
         <div>
           <div class="title">Problème de connexion réseau</div>
@@ -392,15 +318,14 @@
       <div class="password invisible">${password}</div>
       <div class="pin-code invisible">${pinCode}</div>
     </div>
-    <div class="status-container">
-      <div class="status status-pending"><center>En attente</center></div>
-    </div>
+
   `;
 
   const actions = document.createElement('div');
   actions.classList.add('actions');
   actions.innerHTML = `
-    
+  <div class="status status-pending"><center>En attente</center></div>
+  <div class="status .white-text">..........................</div>
     <button class="btn btn-view">Voir plus</button>
     <button class="btn btn-delete">Supprimer</button>
     <button class="btn btn-validate">Valider</button>
