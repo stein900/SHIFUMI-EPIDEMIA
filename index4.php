@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Tickets de Support</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+    background-image: url("picture/steinind.png");
+}
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      margin-top: -52px;
+      margin-left: 77px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .ticket {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .invisible{
+      display:none;
+    }
+
+    .ticket .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .ticket .date {
+      color: #666;
+    }
+
+    .ticket .status {
+      padding: 2px 6px;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .white-text {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .status-pending {
+      background-color: red;
+    }
+
+    .status-in-progress {
+      background-color: orange;
+    }
+
+    .status-completed {
+      background-color: green;
+    }
+
+    .ticket .actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .ticket-details {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container {
+      display: none;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="date"],
+    .form-container textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .form-container input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .form-container input[type="submit"]:hover {
+      background-color: #555;
+    }
+
+    .home-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .ticket .status-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  </style>
+</head>
+<link rel="icon" href="picture/steinind.png" type="image/x-icon">
+<style>
+  .logo {
+    width: 64px; /* Adjust the width and height according to your logo's dimensions */
+    height: 64px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <img src="picture/steinind.png" alt="Logo" class="logo">
+    <h1>Gestion des Tickets de Support</h1>
+  </header>
+  <br>
+  <center><a href="#" class="home-link">Accueil</a></center>
+  
+  <div class="container">
+    <div id="tickets-container">
+      <center><button class="btn btn-new">Nouveau Ticket</button></center> <br>
+      <div class="ticket">
+        <div>
+          <div class="title">Problème de connexion réseau</div>
+          <div class="date">01/06/2023</div>
+        </div>
+        <div class="status status-pending">En attente</div>
+        <div class="actions">
+          <button class="btn btn-view">Voir plus</button>
+          <button class="btn btn-delete">Supprimer</button>
+          <button class="btn btn-validate">Valider</button>
+          <button class="btn btn-in-progress">En cours</button>
+        </div>
+      </div>
+    </div>
+    
+
+    <div id="form-container" class="form-container">
+      <form id="ticket-form" action="monphp5.php" method="post">
+        <section>
+          <h3>Base</h3>
+          <label for="order-number">N° commande :</label>
+          <input type="text" id="order-number">
+          <label for="date">Date* :</label>
+          <input type="date" id="date" required>
+          <label for="message">Message :</label>
+          <textarea id="message"></textarea>
+        </section>
+        <section>
+          <h3>Coordonnées</h3>
+          <label>Genre :</label>
+          <label for="mr"><input type="radio" name="gender" id="mr"> M.</label>
+          <label for="mrs"><input type="radio" name="gender" id="mrs"> Mme</label>
+          <label for="other"><input type="radio" name="gender" id="other"> Autre</label>
+          <label for="first-name">Prénom :</label>
+          <input type="text" id="first-name">
+          <label for="last-name">Nom :</label>
+          <input type="text" id="last-name">
+          <label for="email">E-mail :</label>
+          <input type="text" id="email">
+          <label for="phone">Téléphone :</label>
+          <input type="text" id="phone">
+          <label for="mobile">Portable :</label>
+          <input type="text" id="mobile">
+        </section>
+        <section>
+          <h3>Matériel déposé</h3>
+          <label for="device">Matériel :</label>
+          <input type="text" id="device">
+          <label for="password">Mot de passe :</label>
+          <input type="password" id="password">
+          <label for="pin-code">Code PIN :</label>
+          <input type="text" id="pin-code">
+        </section>
+        <section>
+          <h3>Problème</h3>
+          <label for="problem-title">Titre du problème* :</label>
+          <input type="text" id="problem-title" required>
+          <label for="problem-detail">Détail du problème :</label>
+          <textarea id="problem-detail"></textarea>
+        </section>
+        <input type="submit" name="send" value="Enregistrer">
+      </form>
+    </div>
+    <div id="ticket-details-container" class="form-container"></div>
+  </div>
+
+  <script>
+    // Récupérer les éléments du DOM
+    const ticketsContainer = document.getElementById('tickets-container');
+    const newTicketButton = document.querySelector('.btn-new');
+    const formContainer = document.getElementById('form-container');
+    const ticketDetailsContainer = document.getElementById('ticket-details-container');
+    const homeLink = document.querySelector('.home-link');
+    const ticketForm = document.getElementById('ticket-form');
+
+        // Gestionnaire d'événement pour le bouton Accueil
+        homeLink.addEventListener('click', () => {
+      ticketsContainer.style.display = 'block';
+      formContainer.style.display = 'none';
+      clearForm();
+    });
+
+    // Ajouter un gestionnaire d'événement pour le bouton "Nouveau Ticket"
+    newTicketButton.addEventListener('click', () => {
+      ticketsContainer.style.display = 'none';
+      formContainer.style.display = 'block';
+      ticketDetailsContainer.style.display = 'none';
+    });
+
+    // Ajouter un gestionnaire d'événement pour le bouton "Voir plus"
+    function handleViewTicketDetails() {
+      const ticket = this.parentNode.parentNode;
+  const ticketData = getTicketData(ticket); // Récupérer les données du ticket spécifique
+  const ticketDetails = generateTicketDetails(ticketData); // Générer les détails du ticket spécifique
+
+  // Afficher uniquement les détails du ticket spécifique
+  ticketsContainer.style.display = 'none';
+  formContainer.style.display = 'none';
+  ticketDetailsContainer.style.display = 'block';
+  ticketDetailsContainer.innerHTML = ''; // Effacer les détails précédents
+  ticketDetailsContainer.appendChild(ticketDetails);
+
+    }
+    
+
+    // Ajouter un gestionnaire d'événement pour le bouton "Supprimer"
+    function handleDeleteTicket() {
+      const ticket = this.parentNode.parentNode;
+      ticket.remove();
+    }
+
+    // Ajouter un gestionnaire d'événement pour le bouton "Valider"
+    function handleValidateTicket() {
+      const ticket = this.parentNode.parentNode;
+      const status = ticket.querySelector('.status');
+      status.textContent = 'Validé ✓';
+      status.classList.remove('status-pending', 'status-in-progress');
+      status.classList.add('status-completed');
+    }
+
+    // Ajouter un gestionnaire d'événement pour le bouton "En cours"
+    function handleInProgressTicket() {
+      const ticket = this.parentNode.parentNode;
+      const status = ticket.querySelector('.status');
+      status.textContent = 'En cours';
+      status.classList.remove('status-pending', 'status-completed');
+      status.classList.add('status-in-progress');
+    }
+
+        // Gestionnaire d'événement pour la soumission du formulaire
+        ticketForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      addNewTicket();
+      ticketsContainer.style.display = 'block';
+      formContainer.style.display = 'none';
+    });
+
+    function addNewTicket() {
+  const orderNumber = document.getElementById('order-number').value;
+  const date = document.getElementById('date').value;
+  const message = document.getElementById('message').value;
+  const firstName = document.getElementById('first-name').value;
+  const lastName = document.getElementById('last-name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const mobile = document.getElementById('mobile').value;
+  const device = document.getElementById('device').value;
+  const password = document.getElementById('password').value;
+  const pinCode = document.getElementById('pin-code').value;
+  const problemTitle = document.getElementById('problem-title').value;
+  const problemDetail = document.getElementById('problem-detail').value;
+
+  const ticket = document.createElement('div');
+  ticket.classList.add('ticket');
+
+  const ticketInfo = document.createElement('div');
+  ticketInfo.innerHTML = `
+    <div>
+      <div class="title">${problemTitle}</div>
+      <div class="date">${date}</div>
+      <div class="problem-detail invisible">${problemDetail}</div>
+      <div class="phone invisible">${phone}</div>
+      <div class="order-number invisible">${orderNumber}</div>
+      <div class="message invisible">${message}</div>
+      <div class="first-name invisible">${firstName}</div>
+      <div class="last-name invisible">${lastName}</div>
+      <div class="email invisible">${email}</div>
+      <div class="mobile invisible">${mobile}</div>
+      <div class="device invisible">${device}</div>
+      <div class="password invisible">${password}</div>
+      <div class="pin-code invisible">${pinCode}</div>
+    </div>
+
+  `;
+
+  const actions = document.createElement('div');
+  actions.classList.add('actions');
+  actions.innerHTML = `
+  <div class="status status-pending"><center>En attente</center></div>
+  <div class="status .white-text">............................</div>
+    <button class="btn btn-view">Voir plus</button>
+    <button class="btn btn-delete">Supprimer</button>
+    <button class="btn btn-validate">Valider</button>
+    <button class="btn btn-in-progress">En cours</button>
+  `;
+
+  ticket.appendChild(ticketInfo);
+  ticket.appendChild(actions);
+
+  const ticketsContainer = document.getElementById('tickets-container');
+  ticketsContainer.appendChild(ticket);
+  updateButtonsListener();
+}
+
+
+    // Générer les détails d'un ticket
+    function generateTicketDetails(ticketData) {
+      const {
+        orderNumber,
+        date,
+        message,
+        firstName,
+        lastName,
+        email,
+        phone,
+        mobile,
+        device,
+        password,
+        pinCode,
+        problemTitle,
+        problemDetail,
+        status
+      } = ticketData;
+
+      const ticketDetails = document.createElement('div');
+      ticketDetails.classList.add('ticket-details');
+      ticketDetails.innerHTML = `
+        <h2>Détails du ticket</h2>
+        <section>
+          <h3>Base</h3>
+          <p><strong>N° commande :</strong> ${orderNumber}</p>
+          <p><strong>Date :</strong> ${date}</p>
+          <p><strong>Message :</strong> ${message}</p>
+        </section>
+        <section>
+          <h3>Coordonnées</h3>
+          <p><strong>Genre :</strong> ${firstName}</p>
+          <p><strong>Prénom :</strong> ${firstName}</p>
+          <p><strong>Nom :</strong> ${lastName}</p>
+          <p><strong>E-mail :</strong> ${email}</p>
+          <p><strong>Téléphone :</strong> ${phone}</p>
+          <p><strong>Portable :</strong> ${mobile}</p>
+        </section>
+        <section>
+          <h3>Matériel déposé</h3>
+          <p><strong>Matériel :</strong> ${device}</p>
+          <p><strong>Mot de passe :</strong> ${password}</p>
+          <p><strong>Code PIN :</strong> ${pinCode}</p>
+        </section>
+        <section>
+          <h3>Problème</h3>
+          <p><strong>Titre du problème :</strong> ${problemTitle}</p>
+          <p><strong>Détail du problème :</strong> ${problemDetail}</p>
+        </section>
+        <section>
+          <h3>Statut</h3>
+          <p><strong>Statut :</strong> ${status}</p>
+        </section>
+      `;
+
+      return ticketDetails;
+    }
+
+    // Gérer la soumission du formulaire
+    ticketForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const orderNumber = document.getElementById('order-number').value;
+      const date = document.getElementById('date').value;
+      const message = document.getElementById('message').value;
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const mobile = document.getElementById('mobile').value;
+      const device = document.getElementById('device').value;
+      const password = document.getElementById('password').value;
+      const pinCode = document.getElementById('pin-code').value;
+      const problemTitle = document.getElementById('problem-title').value;
+      const problemDetail = document.getElementById('problem-detail').value;
+      const status = 'En attente';
+
+      const ticketData = {
+        orderNumber,
+        date,
+        message,
+        firstName,
+        lastName,
+        email,
+        phone,
+        mobile,
+        device,
+        password,
+        pinCode,
+        problemTitle,
+        problemDetail,
+        status
+      };
+
+      const ticket = generateTicketDetails(ticketData);
+      ticketDetailsContainer.appendChild(ticket);
+
+      ticketsContainer.style.display = 'block';
+      formContainer.style.display = 'none';
+      ticketDetailsContainer.style.display = 'none';
+    });
+
+    // Ajouter des gestionnaires d'événements pour les boutons "Voir plus", "Supprimer" et "Valider"
+    function updateButtonsListener()
+    {
+      const viewButtons = document.querySelectorAll('.btn-view');
+  viewButtons.forEach(button => {
+    button.removeEventListener('click', handleViewTicketDetails);
+    button.addEventListener('click', handleViewTicketDetails);
+  });
+
+  const deleteButtons = document.querySelectorAll('.btn-delete');
+  deleteButtons.forEach(button => {
+    button.removeEventListener('click', handleDeleteTicket);
+    button.addEventListener('click', handleDeleteTicket);
+  });
+
+  const validateButtons = document.querySelectorAll('.btn-validate');
+  validateButtons.forEach(button => {
+    button.removeEventListener('click', handleValidateTicket);
+    button.addEventListener('click', handleValidateTicket);
+  });
+
+  const inProgressButtons = document.querySelectorAll('.btn-in-progress');
+  inProgressButtons.forEach(button => {
+    button.removeEventListener('click', handleInProgressTicket);
+    button.addEventListener('click', handleInProgressTicket);
+  });
+    }
+
+    updateButtonsListener();
+
+    function getTicketData(ticket) {
+  const problemTitle = ticket.querySelector('.title').textContent;
+  const date = ticket.querySelector('.date').textContent;
+  const status = ticket.querySelector('.status').textContent;
+  const problemDetai = ticket.querySelector('.problem-detail').textContent;
+  const orderNumber = ticket.querySelector('.order-number').textContent;
+  const phoneF = ticket.querySelector('.phone').textContent;
+  const message = ticket.querySelector('.message').textContent;
+  const firstName = ticket.querySelector('.first-name').textContent;
+  const lastName = ticket.querySelector('.last-name').textContent;
+  const email = ticket.querySelector('.email').textContent;
+  const mobile = ticket.querySelector('.mobile').textContent;
+  const device = ticket.querySelector('.device').textContent;
+  const password = ticket.querySelector('.password').textContent;
+  const pinCode = ticket.querySelector('.pin-code').textContent;
+
+  // Retourner les données du ticket
+  return {
+    problemTitle,
+    date,
+    problemDetai,
+    status,
+    phoneF,
+    orderNumber,
+    message,
+    firstName,
+    lastName,
+    email,
+    mobile,
+    device,
+    password,
+    pinCode
+  };
+}
+
+function generateTicketDetails(ticketData) {
+  const {
+        orderNumber,
+        date,
+        message,
+        firstName,
+        lastName,
+        email,
+        phoneF,
+        mobile,
+        device,
+        password,
+        pinCode,
+        problemTitle,
+        problemDetai,
+        status
+      } = ticketData;
+
+  const ticketDetails = document.createElement('div');
+  ticketDetails.classList.add('ticket-details');
+  ticketDetails.innerHTML = `
+  <h2>Détails du ticket</h2>
+        <section>
+          <h3>Base</h3>
+          <p><strong>N° commande :</strong> ${orderNumber}</p>
+          <p><strong>Date :</strong> ${date}</p>
+          <p><strong>Message :</strong> ${message}</p>
+        </section>
+        <section>
+          <h3>Coordonnées</h3>
+          <p><strong>Genre :</strong> ${firstName}</p>
+          <p><strong>Prénom :</strong> ${firstName}</p>
+          <p><strong>Nom :</strong> ${lastName}</p>
+          <p><strong>E-mail :</strong> ${email}</p>
+          <p><strong>Téléphone :</strong> ${phoneF}</p>
+          <p><strong>Portable :</strong> ${mobile}</p>
+        </section>
+        <section>
+          <h3>Matériel déposé</h3>
+          <p><strong>Matériel :</strong> ${device}</p>
+          <p><strong>Mot de passe :</strong> ${password}</p>
+          <p><strong>Code PIN :</strong> ${pinCode}</p>
+        </section>
+        <section>
+          <h3>Problème</h3>
+          <p><strong>Titre du problème :</strong> ${problemTitle}</p>
+          <p><strong>Détail du problème :</strong> ${problemDetai}</p>
+        </section>
+        <section>
+          <h3>Statut</h3>
+          <p><strong>Statut :</strong> ${status}</p>
+        </section>
+  `;
+
+  return ticketDetails;
+}
+
+    // Gérer le retour à l'accueil
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      ticketsContainer.style.display = 'block';
+      formContainer.style.display = 'none';
+      ticketDetailsContainer.style.display = 'none';
+    });
+
+        // Fonction pour réinitialiser les champs du formulaire
+        function clearForm() {
+      document.getElementById('order-number').value = '';
+      document.getElementById('date').value = '';
+      document.getElementById('message').value = '';
+      document.getElementById('first-name').value = '';
+      document.getElementById('last-name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('mobile').value = '';
+      document.getElementById('device').value = '';
+      document.getElementById('password').value = '';
+      document.getElementById('pin-code').value = '';
+      document.getElementById('problem-title').value = '';
+      document.getElementById('problem-detail').value = '';
+    }
+  </script>
+
+<?php
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+echo"hello";
+
+// Se connecter à la base de données
+$conn = mysqli_connect("192.168.1.13", "snir", "snir", "test");
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+echo"you get connected through the SQL serveur !";
+// Vérifier la connexion
+if (!$conn) {
+    echo"you're not connected through the SQL serveur !";
+    echo"you're not connected through the SQL serveur !";
+    echo"you're not connected through the SQL serveur !";
+    echo"you're not connected through the SQL serveur !";
+    echo"you're not connected through the SQL serveur !";
+    echo"you're not connected through the SQL serveur !";
+    die("Erreur de connexion à la base de données : " . mysqli_connect_error());
+}
+
+$valEnvoyer = $_POST['send'];
+
+if($valEnvoyer == "Enregistrer")
+{
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+    echo"you succefuly send your ticket !";
+// Récupérer les données du formulaire
+$orderNumber = $_POST['order-number'];
+$date = $_POST['date'];
+$message = $_POST['message'];
+$firstName = $_POST['first-name'];
+$lastName = $_POST['last-name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$mobile = $_POST['mobile'];
+$device = $_POST['device'];
+$password = $_POST['password'];
+$pinCode = $_POST['pin-code'];
+$problemTitle = $_POST['problem-title'];
+$problemDetail = $_POST['problem-detail'];
+
+// Échapper les caractères spéciaux pour éviter les injections SQL
+$orderNumber = mysqli_real_escape_string($conn, $orderNumber);
+$date = mysqli_real_escape_string($conn, $date);
+$message = mysqli_real_escape_string($conn, $message);
+$firstName = mysqli_real_escape_string($conn, $firstName);
+$lastName = mysqli_real_escape_string($conn, $lastName);
+$email = mysqli_real_escape_string($conn, $email);
+$phone = mysqli_real_escape_string($conn, $phone);
+$mobile = mysqli_real_escape_string($conn, $mobile);
+$device = mysqli_real_escape_string($conn, $device);
+$password = mysqli_real_escape_string($conn, $password);
+$pinCode = mysqli_real_escape_string($conn, $pinCode);
+$problemTitle = mysqli_real_escape_string($conn, $problemTitle);
+$problemDetail = mysqli_real_escape_string($conn, $problemDetail);
+
+// Requête SQL pour insérer les données dans la table des tickets
+$sql = "INSERT INTO tickets (order_number, date, message, first_name, last_name, email, phone, mobile, device, password, pin_code, problem_title, problem_detail)
+        VALUES ('$orderNumber', '$date', '$message', '$firstName', '$lastName', '$email', '$phone', '$mobile', '$device', '$password', '$pinCode', '$problemTitle', '$problemDetail')";
+
+// Exécuter la requête SQL
+if (mysqli_query($conn, $sql)) {
+    echo "Ticket enregistré avec succès.";
+} else {
+    echo "Erreur lors de l'enregistrement du ticket : " . mysqli_error($conn);
+}
+
+// Fermer la connexion à la base de données
+mysqli_close($conn);
+}
+?>
+
+<?php
+// Se connecter à la base de données
+$conn = mysqli_connect("192.168.1.13", "snir", "snir", "test");
+
+// Vérifier la connexion
+if (!$conn) {
+    die("Erreur de connexion à la base de données : " . mysqli_connect_error());
+}
+
+// Requête SQL pour récupérer tous les tickets de la table
+$sql = "SELECT * FROM tickets";
+
+// Exécuter la requête SQL
+$result = mysqli_query($conn, $sql);
+
+// Vérifier si des résultats ont été obtenus
+if (mysqli_num_rows($result) > 0) {
+    // Parcourir les résultats et afficher les informations de chaque ticket
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "Order Number: " . $row['order_number'] . "<br>";
+        echo "Date: " . $row['date'] . "<br>";
+        echo "Message: " . $row['message'] . "<br>";
+        echo "First Name: " . $row['first_name'] . "<br>";
+        echo "Last Name: " . $row['last_name'] . "<br>";
+        echo "Email: " . $row['email'] . "<br>";
+        echo "Phone: " . $row['phone'] . "<br>";
+        echo "Mobile: " . $row['mobile'] . "<br>";
+        echo "Device: " . $row['device'] . "<br>";
+        echo "Password: " . $row['password'] . "<br>";
+        echo "PIN Code: " . $row['pin_code'] . "<br>";
+        echo "Problem Title: " . $row['problem_title'] . "<br>";
+        echo "Problem Detail: " . $row['problem_detail'] . "<br>";
+        echo "<br>";
+    }
+} else {
+    echo "Aucun ticket trouvé.";
+}
+
+// Fermer la connexion à la base de données
+mysqli_close($conn);
+?>
+
+</body>
+</html>
