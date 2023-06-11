@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f2f2f2;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
         
         /* En-tête */
@@ -25,6 +26,9 @@
             margin: 0;
             margin-left: 0px;
             font-style: italic;
+            /* font-family: 'Times New Roman', Times, serif; */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
         }
         .logo {
             float: left;
@@ -253,6 +257,21 @@
         var overlay = document.querySelector('.overlay');
         overlay.parentNode.removeChild(overlay);
     }
+
+    function ouvrirVideo() {
+    var videoURL = "source/videos/nonDisponible.mp4";
+    window.open(videoURL, "_blank");
+  }
+
+  function ouvrirVideoFlappy() {
+    var videoURL = "source/videos/flappyVideo.mp4";
+    window.open(videoURL, "_blank");
+  }
+
+  function ouvrirVideoPlane() {
+    var videoURL = "source/videos/planeVideo.mp4";
+    window.open(videoURL, "_blank");
+  }
 </script>
 <style>
     #background-video {
@@ -267,6 +286,26 @@
     .content {
         position: relative;
         z-index: 1;
+    }
+</style>
+
+<style>
+        .modern-button {
+    border-radius: 5px;
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+    color: #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    a {
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    }
+    a:hover {
+    cursor: pointer;
+    color: #084200;
+    transition: color 0.3s ease-in-out;
     }
 </style>
 
@@ -349,7 +388,8 @@
             <p>La calculatrice dispose d'un menu situé en haut à gauche, offrant l'accès à plusieurs modes. Par défaut, elle se trouve en mode classique, affichant un pavé numérique <br>de 0 à 9, ainsi que les boutons d'addition, de soustraction, de multiplication et de division. Cependant, j'ai ajouté un bouton "Avancé" qui permet de passer directement<br> du mode classique au mode avancé. Le choix de charger l'application en mode simple est évident, car généralement, une personne pressée n'aura besoin que des opérations <br>simples, et c'est là que cette interface allégée intervient. Elle rend la tâche plus simple et plus rapide.</p>
             <p>Cependant, si quelqu'un a besoin d'utiliser des outils plus complexes, il lui suffit d'un seul clic pour accéder au mode avancé. Le mode avancé propose davantage de possibilités,<br> notamment le calcul direct de pourcentages, la racine carrée de x, x au carré, sinus, cosinus, tangente, les nombres négatifs et enfin π (pi).</p>
             <p>De plus, la calculatrice possède également un mode température avec les degrés Celsius et Fahrenheit, ainsi qu'un mode programmeur comprenant les systèmes binaires, octaux, <br>décimaux et hexadécimaux. Ces deux modes sont également accessibles via le menu.</p>
-            <a href="https://github.com/stein900/graphic-calculator/blob/main/Calculatrice%20graphique.pdf">cliquez ici pour en voir plus</a>
+            <a href="https://github.com/stein900/graphic-calculator/blob/main/Calculatrice%20graphique.pdf">cliquez ici pour en voir plus&emsp;</a>
+            <button class="modern-button" onclick="ouvrirVideo()">voir un aperçu vidéo</button>
         </section>
     </div>
     <div class="main-section">
@@ -366,7 +406,8 @@
             <p>Cela ajoute une dimension de progression et de récompense au jeu, incitant les joueurs à améliorer leurs compétences et à obtenir des scores élevés pour débloquer de nouveaux <br>skins dans la boutique. Ainsi, chaque joueur a la possibilité de personnaliser l'apparence de son oiseau en fonction de ses réalisations et de son style de jeu.</p>
             <p>De plus, il convient de noter que certains skins dans la boutique peuvent modifier le niveau de difficulté du jeu. En effet, certains skins permettent à l'oiseau de voler plus <br>rapidement ou de sauter plus haut que le skin par défaut. Cela signifie que choisir un skin spécifique peut entraîner des variations dans le gameplay, offrant ainsi des défis <br>supplémentaires ou des avantages selon le choix du joueur.            </p>
             <p>Par conséquent, les joueurs ont la possibilité de personnaliser non seulement l'apparence visuelle de leur oiseau, mais aussi les caractéristiques et la difficulté du gameplay <br>en sélectionnant différents skins dans la boutique. Cela ajoute une dimension stratégique au jeu, car les joueurs doivent évaluer les avantages et les inconvénients de <br>>skin en fonction de leurs compétences et de leur style de jeu.            </p>
-            <p></p> <a href="https://github.com/stein900/Flappy-Bird">cliquez ici pour en voir plus</a>
+            <p></p> <a href="https://github.com/stein900/Flappy-Bird">cliquez ici pour en voir plus&emsp;</a>
+            <button class="modern-button" onclick="ouvrirVideoFlappy()">voir un aperçu vidéo</button>
             <br>
         </section>
     </div>
@@ -392,7 +433,8 @@
                 
                 Préparez-vous à vivre des sensations fortes, à ressentir l'adrénaline de l'action et à vous <br>immerger dans un univers aérien spectaculaire !
                 <br><br>
-                Amusez-vous bien !</p> <a href="https://github.com/stein900/Plane-Game-SFML">cliquez ici pour en voir plus</a>
+                Amusez-vous bien !</p> <a href="https://github.com/stein900/Plane-Game-SFML">cliquez ici pour en voir plus&emsp;</a>
+                <button class="modern-button" onclick="ouvrirVideoPlane()">voir un aperçu vidéo</button>
         </section>
     </div>
     <div class="main-section">
@@ -412,7 +454,7 @@
             <p>Shifumi Epidemia est non seulement divertissant, mais il permet également de mettre en pratique des concepts de programmation tels que les mouvements aléatoires, <br>les collisions et les transformations. Il offre également une expérience interactive où les joueurs peuvent observer et influencer le résultat en fonction de leurs actions.</p>
             <p>Je suis fier d'avoir créé ce jeu en JavaScript et j'espère qu'il vous offrira un divertissement captivant tout en vous permettant d'apprécier les subtilités de la logique de <br>programmation.            </p>
             <p>Amusez-vous bien en explorant l'univers de Shifumi Epidemia et voyez quel élément émergera victorieux !</p>
-            <p>Vous pouvez accedez au site dès maintenant en cliquant ici -> <a href="https://stein900.github.io/hub/shifumi">shifumi epidemia</a></p>
+            <p>Vous pouvez accedez au site dès maintenant en cliquant ici -> <a href="https://stein900.github.io/hub/shifumi">shifumi epidemia&emsp;</a></p>
         </section>
     </div>
     <div class="main-section">
@@ -459,6 +501,7 @@
             <p>Je suis fier de vous présenter Dexuiem et j'espère que vous apprécierez les nombreux défis qui vous attendent. Testez vos compétences, surmontez les <br>obstacles et explorez les mondes fascinants de Dexuiem.
 
             </p>
+
         </section>
     </div>
     <div class="main-section">
@@ -489,6 +532,7 @@
             <p>Je suis fier de vous présenter Vahron et j'espère que vous apprécierez l'aventure épique qui vous attend. Explorez la forêt, récupérez les pierres précieuses, évitez les <br>ennemis et tentez de survivre face à la "bête noire". Préparez-vous à une expérience palpitante et inoubliable !
 
             </p> 
+            <button class="modern-button" onclick="ouvrirVideo()">voir un aperçu vidéo</button>
         </section>
     </div>
     <div class="main-section">
@@ -518,7 +562,7 @@
             <p>J'ai consacré du temps et des efforts à la conception et au développement de cette application, en veillant à ce qu'elle soit conviviale et fonctionnelle. <br>Je suis fier de présenter TicketsArena, car elle offre une solution efficace pour la gestion des tickets de support.
 
             </p>
-            <p><a href="https://stein900.github.io/hub/TicketsArena">cliquez ici pour tester la version démo</a></p>
+            <p><a href="https://stein900.github.io/hub/TicketsArena">cliquez ici pour tester la version démo&emsp;</a></p>
         </section>
     </div>
     <div class="main-section">
