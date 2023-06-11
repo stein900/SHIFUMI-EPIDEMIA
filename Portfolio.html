@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: 'Poppins';
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        
+        /* En-tête */
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            margin-left: 0px;
+            font-style: italic;
+        }
+        .logo {
+            float: left;
+            }
+        /* Navigation */
+        nav {
+            background-color: #666;
+            padding: 10px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        nav ul li {
+            display: inline-block;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+        }
+        
+        /* Section principale */
+        .main-section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .main-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .main-section:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const mainSections = document.querySelectorAll('.main-section');
+            const sectionStatus = Array.from(mainSections).fill(false);
+            
+            const revealSections = () => {
+                mainSections.forEach((section, index) => {
+                    if (isElementInViewport(section)) {
+                        if (!sectionStatus[index]) {
+                            section.classList.add('active');
+                            sectionStatus[index] = true;
+                        }
+                    } else {
+                        section.classList.remove('active');
+                        sectionStatus[index] = false;
+                    }
+                });
+            };
+            
+            const isElementInViewport = (element) => {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            };
+            
+            window.addEventListener('scroll', revealSections);
+            revealSections();
+        });
+    </script>
+</head>
+<style>
+    .logo {
+      width: 64px; /* Adjust the width and height according to your logo's dimensions */
+      height: 64px;
+      margin-top: -52px;
+      margin-left: 0px;
+    }
+    .logooo {
+      width: 700px; /* Adjust the width and height according to your logo's dimensions */
+      height: 700px;
+      margin: 880;
+            margin-left: 570px;
+    }
+    .logoo {
+      width: 700px; /* Adjust the width and height according to your logo's dimensions */
+      height: 230px;
+      margin: 880;
+            margin-left: 570px;
+    }
+    .right-image {
+    float: right;
+    width: 300px; /* Adjust the width and height according to your logo's dimensions */
+    height: 300px;
+    margin-top: 20px;
+    }
+
+    .calculet {
+    float: right;
+    width: 300px; /* Adjust the width and height according to your logo's dimensions */
+    height: 300px;
+    margin-top: 8px;
+    }
+
+    .planum {
+    float: right;
+    width: 400px; /* Adjust the width and height according to your logo's dimensions */
+    height: 400px;
+    margin-top: 19px;
+    }
+
+    .shifumiE {
+    float: right;
+    width: 320px; /* Adjust the width and height according to your logo's dimensions */
+    height: 320px;
+    margin-top: 30px;
+    margin-right: 50px;
+    }
+
+    .dunkH {
+    float: right;
+    width: 320px; /* Adjust the width and height according to your logo's dimensions */
+    height: 320px;
+    margin-top: 43px;
+    margin-right: 50px;
+    }
+
+    .Dexuiem {
+    float: right;
+    width: 530px; /* Adjust the width and height according to your logo's dimensions */
+    height: 380px;
+    margin-top: 7px;
+    margin-right: 50px;
+    }
+
+    .VahronC {
+    float: right;
+    width: 530px; /* Adjust the width and height according to your logo's dimensions */
+    height: 380px;
+    margin-top: 32px;
+    margin-right: 50px;
+    }
+
+    .GDTDS {
+    float: right;
+    width: 560px; /* Adjust the width and height according to your logo's dimensions */
+    height: 410px;
+    margin-top: 50px;
+    margin-right: 50px;
+    }
+
+        .image-grande {
+        max-width: 90%;
+        max-height: 90%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .thumbnail {
+        margin-bottom: 20px; /* Ajoute une marge en bas de l'élément .thumbnail */
+    }
+
+    #projets {
+        margin-left: 30px; /* Ajoute une marge à gauche de l'élément #projets */
+    }
+  </style>
+  <script>
+    function afficherImage(cheminImage) {
+        var imageGrande = document.createElement('img');
+        imageGrande.src = cheminImage;
+        imageGrande.classList.add('image-grande');
+        
+        var overlay = document.createElement('div');
+        overlay.classList.add('overlay');
+        overlay.appendChild(imageGrande);
+        
+        overlay.addEventListener('click', fermerImage); // Ajouter cet événement de clic
+        
+        document.body.appendChild(overlay);
+    }
+    
+    function fermerImage() {
+        var overlay = document.querySelector('.overlay');
+        overlay.parentNode.removeChild(overlay);
+    }
+</script>
+<style>
+    #background-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+    
+    .content {
+        position: relative;
+        z-index: 1;
+    }
+</style>
+
+<video id="background-video" autoplay loop muted>
+    <source src="source/videos/uyfydctycr.mp4" type="video/mp4">
+</video>
+<body>
+    
+    <header>
+        <h1>Mon Portfolio</h1>
+        <img src="source/steinind.png" alt="Logo" class="logo">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="main-section">
+        <img src="source/Portfolio1.png" alt="Logo" class="logooo">
+        </div>
+    </div>
+    <div class="main-section">
+        <!-- <div class="main-section">
+            <div class="thumbnail" onclick="afficherImage('source/egge.png')">
+                <img src="source/egge.png" alt="Description de l'image" class="right-image">
+            </div> -->
+        <section id="accueil">
+            <h2>Accueil</h2>
+            <p>Bienvenue sur mon site portfolio !</p>
+            <p>Je suis ravi de vous accueillir ici, où vous pourrez découvrir mes réalisations et explorer mon parcours professionnel. Ce portfolio est conçu pour vous donner un aperçu complet de mes compétences, <br>de mes projets et de mon expertise dans différents domaines.</p>
+            <p>Que vous soyez un employeur potentiel, un collègue ou simplement quelqu'un intéressé par mon travail, j'espère que vous trouverez ici les informations pertinentes et inspirantes que vous recherchez. <br>N'hésitez pas à naviguer à travers les différentes sections pour en apprendre davantage sur mes réalisations, mes compétences techniques, mes expériences professionnelles et mes passions.</p>
+            <p>Je suis fier de présenter mes projets les plus significatifs, ceux qui reflètent mon engagement envers l'excellence, l'innovation et la créativité. Chaque projet est le fruit de nombreuses heures de travail, <br>de recherche et de collaboration, et j'espère qu'ils vous donneront un aperçu de mon savoir-faire.</p>
+            <p>Je suis ouvert aux opportunités professionnelles passionnantes et aux collaborations enrichissantes, alors n'hésitez pas à me contacter si vous avez des questions, des propositions ou si vous souhaitez <br>simplement discuter. Je suis impatient de partager mon travail avec vous et d'établir de nouvelles connexions.</p>
+            <p>Merci de votre visite et bonne exploration !</p>
+            <p>Cordialement,<br><br>Raphael laurent</p>
+        </section>
+    </div>
+    <div class="main-section">
+        <section id="apropos">
+            <h2>À propos</h2>
+            <p>Bonjour à tous,
+
+                Je suis ravi de me présenter à vous. Je m'appelle Raphael Laurent, j'ai 20 ans et je suis passionné par le domaine de la programmation et des réseaux informatiques. Actuellement, <br>je suis étudiant en deuxième année de BTS Informatique Programmation et Réseaux.</p><p>
+                
+                Depuis mon plus jeune âge, j'ai toujours été fasciné par la technologie et son potentiel de transformation. La possibilité de créer des solutions innovantes et de résoudre des problèmes concrets <br>à l'aide de la programmation m'a captivé dès mes premiers pas dans ce domaine. J'ai rapidement réalisé que la programmation et les réseaux informatiques étaient les domaines dans lesquels <br>je voulais me spécialiser.</p><p>
+                
+                Mon parcours d'études actuel en BTS informatique me permet d'acquérir des connaissances approfondies en programmation et en gestion des réseaux. J'ai eu l'occasion de développer mes <br>compétences en langages de programmation tels que C++, le langage web comme html, css, JavaScript, php, SQL ainsi qu'en administration des réseaux informatiques.</p><p>
+                
+                Mon ambition est de devenir ingénieur dans le domaine de l'informatique. Je suis conscient que cela nécessitera un investissement continu dans mon apprentissage et une recherche constante <br>de nouvelles connaissances et compétences. Je suis prêt à relever ce défi avec enthousiasme et détermination. </p><p>Je suis impatient de poursuivre mon parcours, d'apprendre de nouvelles choses et de contribuer au développement de solutions informatiques qui auront un impact positif sur le monde qui <br>nous entoure.</p><p>
+
+                </p><p>Merci de m'avoir accordé votre attention et de me donner l'opportunité de partager ma passion avec vous.
+                <br>
+                Cordialement,<br>
+                Raphael Laurent</p>
+        </section>
+    </div>
+    <div class="main-section">
+        <section id="projets">
+            <h2>Projets</h2>
+            <p>Découvrez quelques-uns de mes projets ! Vous pouvez cliquer sur les images pour voir un aperçu.</p> <a href="https://github.com/stein900">lien GitHub</a>
+        </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/calcul.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="thumbnail" onclick="afficherImage('source/calcul.png')">
+            <img src="source/calculLogo.png" alt="Description de l'image" class="calculet">
+        </div>
+        <section id="projets">
+            <h2>calculatrice graphique</h2>
+            <p>J'ai créé cette calculatrice graphique en c++/clr sur Visual Studio 2022.</p>
+            <p>La calculatrice dispose d'un menu situé en haut à gauche, offrant l'accès à plusieurs modes. Par défaut, elle se trouve en mode classique, affichant un pavé numérique <br>de 0 à 9, ainsi que les boutons d'addition, de soustraction, de multiplication et de division. Cependant, j'ai ajouté un bouton "Avancé" qui permet de passer directement<br> du mode classique au mode avancé. Le choix de charger l'application en mode simple est évident, car généralement, une personne pressée n'aura besoin que des opérations <br>simples, et c'est là que cette interface allégée intervient. Elle rend la tâche plus simple et plus rapide.</p>
+            <p>Cependant, si quelqu'un a besoin d'utiliser des outils plus complexes, il lui suffit d'un seul clic pour accéder au mode avancé. Le mode avancé propose davantage de possibilités,<br> notamment le calcul direct de pourcentages, la racine carrée de x, x au carré, sinus, cosinus, tangente, les nombres négatifs et enfin π (pi).</p>
+            <p>De plus, la calculatrice possède également un mode température avec les degrés Celsius et Fahrenheit, ainsi qu'un mode programmeur comprenant les systèmes binaires, octaux, <br>décimaux et hexadécimaux. Ces deux modes sont également accessibles via le menu.</p>
+            <a href="https://github.com/stein900/graphic-calculator">cliquez ici pour en voir plus</a>
+        </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/flappy.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="thumbnail" onclick="afficherImage('source/flappy.png')">
+            <img src="source/flappyLogo.ico" alt="Description de l'image" class="right-image">
+        </div>
+        <section id="projets">
+            <h2>Flappy Bird</h2>
+            <p>J'ai créé un jeu Flappy Bird en utilisant le langage C++ et la bibliothèque SFML. En plus de programmer le jeu, j'ai personnellement conçu les différents skins disponibles<br> dans la boutique du jeu. Ces skins peuvent être débloqués en fonction du niveau accumulé par le joueur au cours des parties, ainsi que du score obtenu.</p>
+            <p>Cela ajoute une dimension de progression et de récompense au jeu, incitant les joueurs à améliorer leurs compétences et à obtenir des scores élevés pour débloquer de nouveaux <br>skins dans la boutique. Ainsi, chaque joueur a la possibilité de personnaliser l'apparence de son oiseau en fonction de ses réalisations et de son style de jeu.</p>
+            <p>De plus, il convient de noter que certains skins dans la boutique peuvent modifier le niveau de difficulté du jeu. En effet, certains skins permettent à l'oiseau de voler plus <br>rapidement ou de sauter plus haut que le skin par défaut. Cela signifie que choisir un skin spécifique peut entraîner des variations dans le gameplay, offrant ainsi des défis <br>supplémentaires ou des avantages selon le choix du joueur.            </p>
+            <p>Par conséquent, les joueurs ont la possibilité de personnaliser non seulement l'apparence visuelle de leur oiseau, mais aussi les caractéristiques et la difficulté du gameplay <br>en sélectionnant différents skins dans la boutique. Cela ajoute une dimension stratégique au jeu, car les joueurs doivent évaluer les avantages et les inconvénients de <br>>skin en fonction de leurs compétences et de leur style de jeu.            </p>
+            <p></p> <a href="https://github.com/stein900/Flappy-Bird">cliquez ici pour en voir plus</a>
+            <br>
+        </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/plane.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="thumbnail" onclick="afficherImage('source/plane.png')">
+            <img src="source/planeLogo.png" alt="Description de l'image" class="planum">
+        </div>
+        <section id="projets">
+            <h2>Planum</h2>
+            <p>J'ai le plaisir de vous présenter mon dernier projet de jeu d'avion, créé en C++ avec la bibliothèque SFML. Ce jeu m'a demandé énormément de temps et d'efforts, <br>mais j'ai vraiment pris beaucoup de plaisir à le développer.</p><p>
+
+                Au départ, vous commencez avec un avion relativement basique, pas très performant. Mais ne vous inquiétez pas, plus vous jouez, plus vous avez la possibilité <br>de débloquer de nouveaux avions impressionnants ! Imaginez-vous aux commandes du Spad S.XIII, du F16, du Boeing F-X Sixth, voire même explorer l'espace <br>avec le StarFighter (U-Wing). La variété des avions à débloquer offre une expérience de jeu toujours renouvelée et excitante.</p><p>
+                
+                Dans ce jeu, vous avez la possibilité de tirer des missiles et de combattre des vagues d'ennemis lanceurs de missiles. Vous serez confronté à des défis de plus en <br>plus difficiles au fur et à mesure de votre progression. Mais ne vous inquiétez pas, votre dextérité et votre agilité vous permettront de surmonter tous les obstacles <br>et de devenir un as des airs.</p><p>
+                
+                Bien que le jeu soit en 2D, j'ai fait de nombreuses innovations pour que vous ayez l'impression de jouer dans un environnement 3D. Le décor est soigneusement <br>conçu pour vous immerger dans des paysages époustouflants, et les avions sont modélisés avec des détails réalistes. L'objectif était de vous offrir une expérience <br>visuelle et immersive unique, vous donnant vraiment l'impression d'être aux commandes d'un avion dans un monde tridimensionnel.</p><p>
+                
+                J'ai mis tout mon cœur et ma passion dans ce projet, en m'efforçant de créer un jeu captivant et divertissant pour les amateurs d'avions et de combats aériens. <br>J'espère que vous apprécierez le jeu autant que j'ai aimé le développer.
+                
+                Préparez-vous à vivre des sensations fortes, à ressentir l'adrénaline de l'action et à vous <br>immerger dans un univers aérien spectaculaire !
+                <br><br>
+                Amusez-vous bien !</p> <a href="https://github.com/stein900/Plane-Game-SFML">cliquez ici pour en voir plus</a>
+        </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/shifumi.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="thumbnail" onclick="afficherImage('source/shifumi.png')">
+            <img src="source/shifumiLogo.ico" alt="Description de l'image" class="shifumiE">
+        </div>
+        <section id="projets">
+            <h2>shifumi epidemia</h2>
+            <p>J'ai le plaisir de vous présenter mon site appelé "Shifumi Epidemia". Ce site est un projet que j'ai créé avec JavaScript. Le concept de ce jeu est simple mais addictif.</p>
+            <p>Dans Shifumi Epidemia, une armée composée de pierre, feuille et ciseau se déplace aléatoirement dans toutes les directions à travers l'écran. Chaque membre de l'armée <br>représente l'un des trois éléments du célèbre jeu "Pierre-Papier-Ciseaux".</p>
+            <p>L'aspect dynamique du jeu est renforcé par le fait que les membres de l'armée rebondissent lorsqu'ils touchent les bords de l'écran. De plus, lorsqu'ils entrent en collision <br>les uns avec les autres, une transformation se produit. Par exemple, si une feuille entre en collision avec une pierre, la feuille domine et transforme la pierre en une nouvelle <br>feuille. Cette dynamique de domination entre les éléments crée une lutte constante pour la survie.</p>
+            <p>L'objectif ultime du jeu est d'arriver à un point où il ne reste qu'un seul groupe d'éléments. Cela signifie que l'armée de pierre, feuille et ciseau se transforme continuellement <br>jusqu'à ce qu'il n'y ait plus qu'un seul élément qui domine les autres.</p>
+            <p>Shifumi Epidemia est non seulement divertissant, mais il permet également de mettre en pratique des concepts de programmation tels que les mouvements aléatoires, <br>les collisions et les transformations. Il offre également une expérience interactive où les joueurs peuvent observer et influencer le résultat en fonction de leurs actions.</p>
+            <p>Je suis fier d'avoir créé ce jeu en JavaScript et j'espère qu'il vous offrira un divertissement captivant tout en vous permettant d'apprécier les subtilités de la logique de <br>programmation.            </p>
+            <p>Amusez-vous bien en explorant l'univers de Shifumi Epidemia et voyez quel élément émergera victorieux !</p>
+            <p>Vous pouvez accedez au site dès maintenant en cliquant ici -> <a href="https://stein900.github.io/hub/shifumi">shifumi epidemia</a></p>
+        </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/dunk.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="thumbnail" onclick="afficherImage('source/DunkP.png')">
+            <img src="source/DunkLogo.png" alt="Description de l'image" class="dunkH">
+        </div>
+        <section id="projets">
+            <h2>Hoop Dunk</h2>
+            <p>Je suis ravi de vous présenter mon jeu "Hoop Dunk" que j'ai créé en utilisant C++ avec la bibliothèque SFML. Ce jeu propose un concept simple mais addictif.            </p>
+            <p>Le principe de Hoop Dunk est de contrôler un ballon et de le faire passer à travers des cerceaux. L'objectif est de ne manquer aucun cerceau tout en évitant <br>de toucher les côtés du cerceau. Si vous parvenez à faire passer le ballon à travers le cerceau avec précision, vous marquez des points et passez au cerceau suivant. <br>Cependant, si vous manquez un cerceau ou touchez le cerceau lui-même, c'est la fin de la partie et vous devez recommencer.            </p>
+            <p>La difficulté du jeu réside dans la précision et le timing nécessaires pour passer le ballon à travers les cerceaux. Chaque cerceau est positionné de manière à vous <br>défier et à tester vos compétences. Vous devrez ajuster votre trajectoire et votre vitesse pour réussir à passer à travers chaque cerceau sans accrocs.            </p>
+            <p>Hoop Dunk offre une expérience de jeu stimulante et addictive, vous incitant à continuer à jouer et à améliorer votre score. Vous pouvez défier vos amis et essayer <br>de marquer le maximum de points pour atteindre le sommet du classement.            </p>
+            <p>J'ai consacré beaucoup de temps et d'efforts pour développer ce jeu, en veillant à ce qu'il offre une expérience de jeu fluide et agréable. L'utilisation de la bibliothèque <br>SFML en C++ m'a permis de créer des graphismes attrayants et des animations fluides pour une immersion optimale.            </p>
+            <p>Je suis impatient de partager Hoop Dunk avec vous et de voir jusqu'où vous pouvez aller ! Pouvez-vous marquer des paniers parfaits et atteindre les sommets du <br>classement ? Testez vos compétences et profitez du plaisir de ce jeu de dextérité captivant.            </p>
+            <p>Bonne chance et amusez-vous bien avec Hoop Dunk !            </p>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/dexuiem.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="thumbnail" onclick="afficherImage('source/dexiumP.png')">
+            <img src="source/dexium.png" alt="Description de l'image" class="Dexuiem">
+        </div>
+        <section id="projets">
+            <h2>dexuiem</h2>
+            <p>Je suis ravi de vous présenter mon jeu "Dexuiem", un projet que j'ai développé sur Unreal Engine. Dans Dexuiem, le joueur est plongé dans un univers captivant <br>où il doit relever plusieurs défis à travers différents parcours.            </p>
+            <p>L'objectif principal du jeu est de réaliser des parcours à travers différents mondes. Chaque monde offre des défis uniques et passionnants. Vous serez confronté <br>à des parcours de précision nécessitant une grande dextérité et une coordination parfaite des mouvements. Vous devrez également affronter des labyrinthes <br>complexes qui mettront à l'épreuve votre sens de l'orientation et votre capacité à résoudre des énigmes.
+
+            </p>
+            <p>Le jeu comprend également des parcours de mémoire, où vous devrez vous souvenir et reproduire des séquences de mouvements ou de motifs pour progresser. <br>Cette partie du jeu mettra à l'épreuve votre capacité de concentration et votre mémoire visuelle.
+
+            </p>
+            <p>Enfin, Dexuiem propose également des défis liés à la réflexion et au calcul de trajectoire d'une propulsion inertique. Vous devrez analyser et calculer avec <br>précision la trajectoire nécessaire pour atteindre votre objectif, en tenant compte des forces et des contraintes du jeu.
+
+            </p>
+            <p>Dexuiem offre une expérience immersive grâce aux superbes graphismes et aux effets visuels impressionnants d'Unreal Engine. Vous serez plongé dans des <br>mondes fantastiques, avec des environnements variés et des défis stimulants.
+
+            </p>
+            <p>Je suis fier de vous présenter Dexuiem et j'espère que vous apprécierez les nombreux défis qui vous attendent. Testez vos compétences, surmontez les <br>obstacles et explorez les mondes fascinants de Dexuiem.
+
+            </p>
+        </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/vahron.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="thumbnail" onclick="afficherImage('source/varhon3.png')">
+            <img src="source/varhon2.png" alt="Description de l'image" class="VahronC">
+        </div>
+        <section id="projets">
+            <h2>Vahron</h2>
+            <p>Je suis ravi de vous présenter mon jeu "Vahron", un projet que j'ai développé sur Unreal Engine. Dans Vahron, les joueurs sont plongés dans une expérience <br>immersive de survie au cœur d'une immense carte forestière. Dès le début du jeu, une imposante statue vous accueille, et une cinématique vous explique les <br>règles simples de ce monde fascinant.
+
+            </p>
+            <p>Le but principal de Vahron est de survivre en explorant la forêt et en récupérant un maximum de pierres précieuses cachées dans des coffres dissimulés. <br>Votre objectif est de rapporter ces pierres précieuses au pied de la statue. Cependant, la forêt regorge d'ennemis redoutables qui mettront vos compétences à rude épreuve.
+
+            </p>
+            <p>Les ennemis de Vahron sont variés et présentent différents niveaux de dangerosité. Certains sont moins sensibles aux bruits, mais une fois qu'ils vous repèrent, <br>ils vous poursuivent à travers les bois jusqu'à votre mort, alors trouvé un moyen de fuir l'ile. Il est donc préférable d'éviter de croiser leur chemin autant que possible. <br>D'autres ennemis sont plus rares, mais extrêmement rapides. Heureusement, vous avez la possibilité de les semer si vous agissez avec stratégie et rapidité. Cependant, <br>je crains qu'il y ait une créature redoutable que l'on surnomme la "bête noire" et qui représente un véritable défi à affronter. On raconte même que l'on entendrait ses <br>battements de cœur quand on s'approche!
+
+            </p>
+            <p>Vahron offre une expérience visuelle et sonore immersive grâce aux graphismes de qualité et aux effets sonores réalistes créés avec Unreal Engine. Vous serez plongé <br>dans un monde vaste et captivant, avec une forêt dense et mystérieuse qui regorge de secrets à découvrir.
+
+            </p>
+            <p>J'ai consacré beaucoup de temps et d'efforts à créer Vahron, en veillant à ce que chaque détail contribue à l'atmosphère immersive du jeu. J'ai voulu offrir aux joueurs <br>une expérience de survie intense, combinant exploration, stratégie et adrénaline.
+
+            </p>
+            <p>Je suis fier de vous présenter Vahron et j'espère que vous apprécierez l'aventure épique qui vous attend. Explorez la forêt, récupérez les pierres précieuses, évitez les <br>ennemis et tentez de survivre face à la "bête noire". Préparez-vous à une expérience palpitante et inoubliable !
+
+            </p> 
+        </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/ticket.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="thumbnail" onclick="afficherImage('source/Tickets.png')">
+            <img src="source/tickets.png" alt="Description de l'image" class="GDTDS">
+        </div>
+        <section id="projets">
+            <h2>Gestion des tickets de support</h2>
+            <p>Je suis ravi de vous présenter mon application de gestion des tickets de support appelée TicketsArena. Cette application a été conçue pour faciliter la gestion <br>des tickets dans une boutique de dépannage informatique.</p>
+            <p>Pour mon étude de cas dans le cadre de mon stage en maintenance et réparation informatique, j’ai développé une application de gestion des tickets de support <br>technique. Cette application pourrait faciliter la communication entre les techniciens, les clients et les équipes de support, tout en automatisant certaines tâches <br>de suivi et de gestion.</p>
+            <p>Le code de TicketsArena permet d'ajouter de nouveaux tickets, chacun contenant des informations spécifiques, notamment un problème ou une demande <br>particulière. Sur la page d'accueil, vous trouverez un bouton "Nouveau ticket" qui vous permet de créer un nouveau ticket en remplissant un formulaire <br>avec les informations nécessaires.
+
+            </p>
+            <p>Une fois créé, chaque ticket peut être modifié en termes de statut grâce aux boutons "Supprimer", "Valider" et "En cours". Lorsque vous modifiez le statut <br>d'un ticket, une pastille de couleur à côté du ticket change également. La pastille devient rouge pour "En attente", orange pour "En cours" et verte pour "Validé". <br>Cela permet de visualiser rapidement l'état de chaque ticket et de suivre leur progression.
+
+            </p>
+            <p>Toutes les données sont sauvegardées dans une base de données SQL stockée sur un serveur Apache et MySQLi que j'ai mis en place. Cette base de données <br>permet de stocker toutes les informations relatives aux tickets, ce qui permet de les charger et de les récupérer facilement lorsque nécessaire.
+
+            </p>
+            <p>TicketsArena a été développée dans le but de simplifier et d'optimiser la gestion des tickets de support dans une boutique de dépannage informatique. <br>Elle permet de suivre efficacement l'état des tickets, de faciliter la communication entre les techniciens et les clients, et d'assurer un suivi précis de chaque demande.
+
+            </p>
+            <p>J'ai consacré du temps et des efforts à la conception et au développement de cette application, en veillant à ce qu'elle soit conviviale et fonctionnelle. <br>Je suis fier de présenter TicketsArena, car elle offre une solution efficace pour la gestion des tickets de support.
+
+            </p>
+            <p><a href="https://stein900.github.io/hub/TicketsArena">cliquez ici pour tester la version démo</a></p>
+        </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/contact.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <section id="contact">
+            <h2>contact</h2>
+            <p>mail: raphaellaurent@gmail.com</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2023 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
