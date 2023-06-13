@@ -393,6 +393,17 @@
             margin-left: 50px;
             margin-top: 550px;
         }
+
+        .progress-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background-color: rgb(16, 92, 1);
+        transition: width 0.3s ease-in-out;
+        z-index: 9999;
+        }
       </style>
     </head>
     <body>
@@ -449,6 +460,13 @@
         // Appliquer l'opacité à l'image
         logo2.style.opacity = opacity2;
     }
+
+    var windowHeight = window.innerHeight;
+      var fullHeight = document.documentElement.scrollHeight - windowHeight;
+      var scrolled = window.pageYOffset;
+      var progress = (scrolled / fullHeight) * 100;
+      var progressBar = document.querySelector(".progress-bar");
+      progressBar.style.width = progress + "%";
 });
 
       </script>
@@ -461,6 +479,8 @@
         <img src="source/Police/bienvenue.png" alt="Logo" class="logoPortfolio2">
         </div>
     </div>
+
+    <div class="progress-bar"></div>
     
     <div class="main-section" id="accueil">
         <!-- <div class="main-section">
