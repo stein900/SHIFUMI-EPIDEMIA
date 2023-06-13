@@ -76,6 +76,26 @@
         .main-section:hover {
             transform: scale(1.02);
         }
+
+        .main-section2 {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .main-section2.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .main-section2:hover {
+            transform: scale(1.02);
+        }
         
         /* Pied de page */
         footer {
@@ -359,6 +379,20 @@
             margin-left: 50px;
             margin-top: -175px;
         }
+        .logoPortfolio2 {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+          z-index: 9999;
+          width: 700px; /* Adjust the width and height according to your logo's dimensions */
+            height: 264px;
+            margin: 880;
+            margin-left: 50px;
+            margin-top: 550px;
+        }
       </style>
     </head>
     <body>
@@ -371,33 +405,63 @@
       </div> -->
     
       <script>
-        window.addEventListener("scroll", function() {
-          var logo = document.querySelector(".logoPortfolio");
-          var scrollPosition = window.pageYOffset;
-    
-          // Calculer l'échelle du zoom en fonction de la position de défilement
-          var scale = 1 + scrollPosition / 1;
-          // Limiter la valeur de l'échelle entre 1 et 2
-          scale = Math.max(1, Math.min(2, scale));
-    
-          // Appliquer la transformation à l'image
-          logo.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+    window.addEventListener("scroll", function() {
+    var logos = document.querySelectorAll(".logoPortfolio");
+    var logos2 = document.querySelectorAll(".logoPortfolio2");
+    var scrollPosition = window.pageYOffset;
 
-                // Calculer l'opacité en fonction de la position de défilement
-            var opacity = 1 - scrollPosition / 2;
-            // Limiter la valeur de l'opacité entre 0 et 1
-            opacity = Math.max(0, Math.min(1, opacity));
+    for (var i = 0; i < logos.length; i++) {
+        var logo = logos[i];
 
-            // Appliquer la transformation et l'opacité à l'image
-            logo.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
-            logo.style.opacity = opacity;
-        });
+        // Calculer l'échelle du zoom en fonction de la position de défilement
+        var scale = 1 + scrollPosition / 1;
+        // Limiter la valeur de l'échelle entre 1 et 2
+        scale = Math.max(1, Math.min(2, scale));
+
+        // Appliquer la transformation à l'image
+        logo.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+
+        // Calculer l'opacité en fonction de la position de défilement
+        var opacity = 1 - scrollPosition / 2;
+        // Limiter la valeur de l'opacité entre 0 et 1
+        opacity = Math.max(0, Math.min(1, opacity));
+
+        // Appliquer l'opacité à l'image
+        logo.style.opacity = opacity;
+    }
+
+    for (var j = 0; j < logos2.length; j++) {
+        var logo2 = logos2[j];
+
+        // Calculer l'échelle du zoom en fonction de la position de défilement
+        var scale2 = 1 + (scrollPosition - 500) / 1; // Décalage de 500px avant de commencer l'animation
+        // Limiter la valeur de l'échelle entre 1 et 2
+        scale2 = Math.max(1, Math.min(2, scale2));
+
+        // Appliquer la transformation à l'image
+        logo2.style.transform = "translate(-50%, -50%) scale(" + scale2 + ")";
+
+        // Calculer l'opacité en fonction de la position de défilement
+        var opacity2 = 1 - (scrollPosition - 500) / 2; // Décalage de 500px avant de commencer l'animation
+        // Limiter la valeur de l'opacité entre 0 et 1
+        opacity2 = Math.max(0, Math.min(1, opacity2));
+
+        // Appliquer l'opacité à l'image
+        logo2.style.opacity = opacity2;
+    }
+});
+
       </script>
 
     <div>
         <img src="source/Portfolio1.png" alt="Logo" class="logoPortfolio">
         </div>
     </div>
+    <div>
+        <img src="source/Police/bienvenue.png" alt="Logo" class="logoPortfolio2">
+        </div>
+    </div>
+    
     <div class="main-section" id="accueil">
         <!-- <div class="main-section">
             <div class="thumbnail" onclick="afficherImage('source/egge.png')">
@@ -630,6 +694,10 @@
 
             </p> 
         </section>
+    </div>
+    <div class="main-section">
+        <img src="source/Police/cisco.png" alt="Logo" class="logoo">
+        </div>
     </div>
     <div class="main-section" id="réseau">
         <div class="thumbnail" onclick="afficherImage('source/cisco.png')">
