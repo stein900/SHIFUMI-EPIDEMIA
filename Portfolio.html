@@ -106,6 +106,55 @@
         }
         
     </style>
+    <style>
+        @media (max-width: 768px) {
+
+    }
+        .container {
+          position: relative;
+          height: 1000px; /* Hauteur de votre page */
+        }
+    
+        .logoPortfolio {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+          z-index: 9999;
+          width: 700px; /* Adjust the width and height according to your logo's dimensions */
+            height: 700px;
+            margin: 880;
+            margin-left: 68px;
+            margin-top: -156px;
+        }
+        .logoPortfolio2 {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+          z-index: 9999;
+          width: 700px; /* Adjust the width and height according to your logo's dimensions */
+            height: 264px;
+            margin: 880;
+            margin-left: 50px;
+            margin-top: 550px;
+        }
+
+        .progress-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background-color: rgb(16, 92, 1);
+        transition: width 0.3s ease-in-out;
+        z-index: 9999;
+        }
+      </style>
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             const mainSections = document.querySelectorAll('.main-section');
@@ -139,6 +188,61 @@
             revealSections();
         });
     </script>
+          <script>
+            window.addEventListener("scroll", function() {
+            var logos = document.querySelectorAll(".logoPortfolio");
+            var logos2 = document.querySelectorAll(".logoPortfolio2");
+            var scrollPosition = window.pageYOffset;
+    
+            for (var i = 0; i < logos.length; i++) {
+                var logo = logos[i];
+    
+                // Calculer l'échelle du zoom en fonction de la position de défilement
+                var scale = 1 + scrollPosition / 1;
+                // Limiter la valeur de l'échelle entre 1 et 2
+                scale = Math.max(1, Math.min(2, scale));
+    
+                // Appliquer la transformation à l'image
+                logo.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+    
+                // Calculer l'opacité en fonction de la position de défilement
+                var opacity = 1 - scrollPosition / 2;
+                // Limiter la valeur de l'opacité entre 0 et 1
+                opacity = Math.max(0, Math.min(1, opacity));
+    
+                // Appliquer l'opacité à l'image
+                logo.style.opacity = opacity;
+            }
+    
+            for (var j = 0; j < logos2.length; j++) {
+                var logo2 = logos2[j];
+    
+                // Calculer l'échelle du zoom en fonction de la position de défilement
+                var scale2 = 1 + (scrollPosition - 500) / 1; // Décalage de 500px avant de commencer l'animation
+                // Limiter la valeur de l'échelle entre 1 et 2
+                scale2 = Math.max(1, Math.min(2, scale2));
+    
+                // Appliquer la transformation à l'image
+                logo2.style.transform = "translate(-50%, -50%) scale(" + scale2 + ")";
+    
+                // Calculer l'opacité en fonction de la position de défilement
+                var opacity2 = 1 - (scrollPosition - 500) / 2; // Décalage de 500px avant de commencer l'animation
+                // Limiter la valeur de l'opacité entre 0 et 1
+                opacity2 = Math.max(0, Math.min(1, opacity2));
+    
+                // Appliquer l'opacité à l'image
+                logo2.style.opacity = opacity2;
+            }
+    
+            var windowHeight = window.innerHeight;
+            var fullHeight = document.documentElement.scrollHeight - windowHeight;
+            var scrolled = window.pageYOffset;
+            var progress = (scrolled / fullHeight) * 100;
+            var progressBar = document.querySelector(".progress-bar");
+            progressBar.style.width = progress + "%";
+              });
+    
+          </script>
 </head>
 <style>
     .logo {
@@ -359,58 +463,8 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    <style>
-        @media (max-width: 768px) {
-  /* Styles pour les écrans de moins de 768 pixels de largeur */
-  /* Réorganisez, redimensionnez ou masquez certains éléments pour s'adapter à un écran plus petit */
-}
-        .container {
-          position: relative;
-          height: 1000px; /* Hauteur de votre page */
-        }
-    
-        .logoPortfolio {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
-          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-          z-index: 9999;
-          width: 700px; /* Adjust the width and height according to your logo's dimensions */
-            height: 700px;
-            margin: 880;
-            margin-left: 50px;
-            margin-top: -175px;
-        }
-        .logoPortfolio2 {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
-          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-          z-index: 9999;
-          width: 700px; /* Adjust the width and height according to your logo's dimensions */
-            height: 264px;
-            margin: 880;
-            margin-left: 50px;
-            margin-top: 550px;
-        }
-
-        .progress-bar {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 5px;
-        background-color: rgb(16, 92, 1);
-        transition: width 0.3s ease-in-out;
-        z-index: 9999;
-        }
-      </style>
     </head>
-    <body>
+
       <div class="container">
         <!-- Votre contenu de page ici -->
     
@@ -418,62 +472,6 @@
           <img src="source/Portfolio1.png" alt="Logo">
         </div>
       </div> -->
-    
-      <script>
-    window.addEventListener("scroll", function() {
-    var logos = document.querySelectorAll(".logoPortfolio");
-    var logos2 = document.querySelectorAll(".logoPortfolio2");
-    var scrollPosition = window.pageYOffset;
-
-    for (var i = 0; i < logos.length; i++) {
-        var logo = logos[i];
-
-        // Calculer l'échelle du zoom en fonction de la position de défilement
-        var scale = 1 + scrollPosition / 1;
-        // Limiter la valeur de l'échelle entre 1 et 2
-        scale = Math.max(1, Math.min(2, scale));
-
-        // Appliquer la transformation à l'image
-        logo.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
-
-        // Calculer l'opacité en fonction de la position de défilement
-        var opacity = 1 - scrollPosition / 2;
-        // Limiter la valeur de l'opacité entre 0 et 1
-        opacity = Math.max(0, Math.min(1, opacity));
-
-        // Appliquer l'opacité à l'image
-        logo.style.opacity = opacity;
-    }
-
-    for (var j = 0; j < logos2.length; j++) {
-        var logo2 = logos2[j];
-
-        // Calculer l'échelle du zoom en fonction de la position de défilement
-        var scale2 = 1 + (scrollPosition - 500) / 1; // Décalage de 500px avant de commencer l'animation
-        // Limiter la valeur de l'échelle entre 1 et 2
-        scale2 = Math.max(1, Math.min(2, scale2));
-
-        // Appliquer la transformation à l'image
-        logo2.style.transform = "translate(-50%, -50%) scale(" + scale2 + ")";
-
-        // Calculer l'opacité en fonction de la position de défilement
-        var opacity2 = 1 - (scrollPosition - 500) / 2; // Décalage de 500px avant de commencer l'animation
-        // Limiter la valeur de l'opacité entre 0 et 1
-        opacity2 = Math.max(0, Math.min(1, opacity2));
-
-        // Appliquer l'opacité à l'image
-        logo2.style.opacity = opacity2;
-    }
-
-    var windowHeight = window.innerHeight;
-      var fullHeight = document.documentElement.scrollHeight - windowHeight;
-      var scrolled = window.pageYOffset;
-      var progress = (scrolled / fullHeight) * 100;
-      var progressBar = document.querySelector(".progress-bar");
-      progressBar.style.width = progress + "%";
-});
-
-      </script>
 
     <div>
         <img src="source/Portfolio1.png" alt="Logo" class="logoPortfolio">
