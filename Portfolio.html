@@ -324,7 +324,7 @@
 <body>
     
     <header>
-        <h1>Mon Portfolio</h1>
+        <h1>Portfolio</h1>
         <img src="source/steinind.png" alt="Logo" class="logo">
     </header>
     <nav>
@@ -333,14 +333,69 @@
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#projets">Projets</a></li>
             <li><a href="#c++">C++</a></li>
-            <li><a href="#web">web</a></li>
+            <li><a href="#web">Web</a></li>
             <li><a href="#Unreal Engine">Unreal Engine</a></li>
-            <li><a href="#réseau">réseau</a></li>
+            <li><a href="#réseau">Réseau</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    <div class="main-section">
-        <img src="source/Portfolio1.png" alt="Logo" class="logooo">
+    <style>
+        .container {
+          position: relative;
+          height: 1000px; /* Hauteur de votre page */
+        }
+    
+        .logoPortfolio {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+          z-index: 9999;
+          width: 700px; /* Adjust the width and height according to your logo's dimensions */
+            height: 700px;
+            margin: 880;
+            margin-left: 50px;
+            margin-top: -175px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <!-- Votre contenu de page ici -->
+    
+        <!-- <div class="logooo">
+          <img src="source/Portfolio1.png" alt="Logo">
+        </div>
+      </div> -->
+    
+      <script>
+        window.addEventListener("scroll", function() {
+          var logo = document.querySelector(".logoPortfolio");
+          var scrollPosition = window.pageYOffset;
+    
+          // Calculer l'échelle du zoom en fonction de la position de défilement
+          var scale = 1 + scrollPosition / 1;
+          // Limiter la valeur de l'échelle entre 1 et 2
+          scale = Math.max(1, Math.min(2, scale));
+    
+          // Appliquer la transformation à l'image
+          logo.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+
+                // Calculer l'opacité en fonction de la position de défilement
+            var opacity = 1 - scrollPosition / 2;
+            // Limiter la valeur de l'opacité entre 0 et 1
+            opacity = Math.max(0, Math.min(1, opacity));
+
+            // Appliquer la transformation et l'opacité à l'image
+            logo.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+            logo.style.opacity = opacity;
+        });
+      </script>
+
+    <div>
+        <img src="source/Portfolio1.png" alt="Logo" class="logoPortfolio">
         </div>
     </div>
     <div class="main-section" id="accueil">
@@ -476,7 +531,7 @@
             <img src="source/shifumiLogo.ico" alt="Description de l'image" class="shifumiE">
         </div>
         <section id="web">
-            <h2>Shifumi Epidemia&emsp;-&emsp;Web"html, css, JavaScript"</h2>
+            <h2>Shifumi Epidemia&emsp;-&emsp;Web "html, css, JavaScript"</h2>
             <p>J'ai le plaisir de vous présenter mon site appelé "Shifumi Epidemia". Ce site est un projet que j'ai créé avec JavaScript. Le concept de ce jeu est simple mais addictif.</p>
             <p>Dans Shifumi Epidemia, une armée composée de pierre, feuille et ciseau se déplace aléatoirement dans toutes les directions à travers l'écran. Chaque membre de l'armée <br>représente l'un des trois éléments du célèbre jeu "Pierre-Papier-Ciseaux".</p>
             <p>L'aspect dynamique du jeu est renforcé par le fait que les membres de l'armée rebondissent lorsqu'ils touchent les bords de l'écran. De plus, lorsqu'ils entrent en collision <br>les uns avec les autres, une transformation se produit. Par exemple, si une feuille entre en collision avec une pierre, la feuille domine et transforme la pierre en une nouvelle <br>feuille. Cette dynamique de domination entre les éléments crée une lutte constante pour la survie.</p>
@@ -496,7 +551,7 @@
             <img src="source/tickets.png" alt="Description de l'image" class="GDTDS">
         </div>
         <section id="web">
-            <h2>Gestion Des Tickets De Support&emsp;-&emsp;Web"html, css, JavaScript, SQL"</h2>
+            <h2>Gestion Des Tickets De Support&emsp;-&emsp;Web "html, css, JavaScript, SQL"</h2>
             <p>Je suis ravi de vous présenter mon application de gestion des tickets de support appelée TicketsArena. Cette application a été conçue pour faciliter la gestion <br>des tickets dans une boutique de dépannage informatique.</p>
             <p>Pour mon étude de cas dans le cadre de mon stage en maintenance et réparation informatique, j’ai développé une application de gestion des tickets de support <br>technique. Cette application pourrait faciliter la communication entre les techniciens, les clients et les équipes de support, tout en automatisant certaines tâches <br>de suivi et de gestion.</p>
             <p>Le code de TicketsArena permet d'ajouter de nouveaux tickets, chacun contenant des informations spécifiques, notamment un problème ou une demande <br>particulière. Sur la page d'accueil, vous trouverez un bouton "Nouveau ticket" qui vous permet de créer un nouveau ticket en remplissant un formulaire <br>avec les informations nécessaires.
@@ -599,7 +654,7 @@
     <div class="main-section">
         <section id="contact">
             <h2>contact</h2>
-            <p>mail: raphaellaurent@gmail.com</p>
+            <p>mail: raphaellaurent29@gmail.com</p>
         </section>
     </div>
     <footer>
