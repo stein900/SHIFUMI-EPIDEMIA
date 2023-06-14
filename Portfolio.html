@@ -76,26 +76,6 @@
         .main-section:hover {
             transform: scale(1.02);
         }
-
-        .main-section2 {
-            margin: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .main-section2.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .main-section2:hover {
-            transform: scale(1.02);
-        }
         
         /* Pied de page */
         footer {
@@ -158,6 +138,39 @@
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             const mainSections = document.querySelectorAll('.main-section');
+            const sectionStatus = Array.from(mainSections).fill(false);
+            
+            const revealSections = () => {
+                mainSections.forEach((section, index) => {
+                    if (isElementInViewport(section)) {
+                        if (!sectionStatus[index]) {
+                            section.classList.add('active');
+                            sectionStatus[index] = true;
+                        }
+                    } else {
+                        section.classList.remove('active');
+                        sectionStatus[index] = false;
+                    }
+                });
+            };
+            
+            const isElementInViewport = (element) => {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            };
+            
+            window.addEventListener('scroll', revealSections);
+            revealSections();
+        });
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const mainSections = document.querySelectorAll('.tmain-section');
             const sectionStatus = Array.from(mainSections).fill(false);
             
             const revealSections = () => {
@@ -370,6 +383,25 @@
     #projets {
         margin-left: 30px; /* Ajoute une marge à gauche de l'élément #projets */
     }
+
+    .tmain-section {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+
+    opacity: 0;
+    transform: translateY(200px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tmain-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tmain-section:hover {
+    transform: scale(1.02);
+}
   </style>
   <script>
     function afficherImage(cheminImage) {
@@ -528,7 +560,7 @@
             <p>Découvrez quelques-uns de mes projets ! Vous pouvez cliquer sur les images pour voir un aperçu.</p> <a href="https://github.com/stein900">lien GitHub</a>
         </section>
     </div>
-    <div class="main-section" id="c++">
+    <div class="tmain-section" id="c++">
         <img src="source/Police/calcul.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -545,7 +577,7 @@
             <a href="https://github.com/stein900/graphic-calculator/blob/main/Calculatrice%20graphique.pdf">cliquez ici pour en voir plus&emsp;</a>
         </section>
     </div>
-    <div class="main-section">
+    <div class="tmain-section">
         <img src="source/Police/flappy.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -564,7 +596,7 @@
             <br>
         </section>
     </div>
-    <div class="main-section">
+    <div class="tmain-section">
         <img src="source/Police/plane.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -590,7 +622,7 @@
                 <button class="modern-button" onclick="ouvrirVideoPlane()">télécharger un aperçu vidéo</button>
         </section>
     </div>
-    <div class="main-section">
+    <div class="tmain-section">
         <img src="source/Police/dunk.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -608,7 +640,7 @@
             <p>Je suis impatient de partager Hoop Dunk avec vous et de voir jusqu'où vous pouvez aller ! Pouvez-vous marquer des paniers parfaits et atteindre les sommets du <br>classement ? Testez vos compétences et profitez du plaisir de ce jeu de dextérité captivant.            </p>
             <p>Bonne chance et amusez-vous bien avec Hoop Dunk !            </p>
     </div>
-    <div class="main-section" id="web">
+    <div class="tmain-section" id="web">
         <img src="source/Police/shifumi.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -628,7 +660,7 @@
             <p>Vous pouvez accedez au site dès maintenant en cliquant ici -> <a href="https://stein900.github.io/hub/shifumi">shifumi epidemia&emsp;</a></p>
         </section>
     </div>
-    <div class="main-section">
+    <div class="tmain-section">
         <img src="source/Police/ticket.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -658,7 +690,7 @@
             <p><a href="https://stein900.github.io/hub/TicketsArena">cliquez ici pour tester la version démo&emsp;</a></p>
         </section>
     </div>
-    <div class="main-section" id="Unreal Engine">
+    <div class="tmain-section" id="Unreal Engine">
         <img src="source/Police/dexuiem.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -687,7 +719,7 @@
 
         </section>
     </div>
-    <div class="main-section">
+    <div class="tmain-section">
         <img src="source/Police/vahron.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -717,7 +749,7 @@
             </p> 
         </section>
     </div>
-    <div class="main-section">
+    <div class="tmain-section">
         <img src="source/Police/cisco.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -737,7 +769,7 @@
             </p>
         </section>
     </div>
-    <div class="main-section">
+    <div class="tmain-section">
         <img src="source/Police/contact.png" alt="Logo" class="logoo">
         </div>
     </div>
@@ -748,7 +780,7 @@
         </section>
     </div>
     <footer>
-        <p>&copy; 2023 Mon Portfolio. Tous droits réservés.</p>
+        <p>&copy; 2023 Mon Portfolio. J'ai réalisé ce site a partir de zero: Tous droits réservés.</p>
     </footer>
 </body>
 </html>
