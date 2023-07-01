@@ -256,6 +256,17 @@
               });
     
           </script>
+          <script>
+            let docTitle = document.title;
+
+            window.addEventListener("blur", () => {
+            document.title = "reviens ;(";
+            });
+
+            window.addEventListener("focus", () => {
+            document.title = docTitle;
+            });
+          </script>
 </head>
 <style>
     .logo {
@@ -403,6 +414,17 @@
     transform: scale(1.02);
 }
   </style>
+
+<script>
+    document.addEventListener('copy', function (e) {
+        e.preventDefault();
+    });
+</script>
+
+<style>
+    
+</style>
+
   <script>
     function afficherImage(cheminImage) {
         var imageGrande = document.createElement('img');
