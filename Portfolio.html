@@ -553,6 +553,7 @@
             <li><a href="#Unreal Engine">Unreal Engine</a></li>
             <li><a href="#réseau">Réseau</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="https://stein900.github.io/hub/pdfmore.html">stage</a></li>
         </ul>
     </nav>
     </head>
@@ -603,7 +604,7 @@
             <h2>À propos</h2>
             <p>Bonjour à tous,
 
-                Je suis ravi de me présenter à vous. Je m'appelle Raphael Laurent, j'ai 20 ans et je suis passionné par le domaine de la programmation et des réseaux informatiques. Actuellement, <br>je suis étudiant en deuxième année de BTS Informatique Programmation et Réseaux.</p><p>
+                Je suis ravi de me présenter à vous. Je m'appelle Raphael Laurent, j'ai <span id="age"></span> ans et je suis passionné par le domaine de la programmation et des réseaux informatiques. Actuellement, <br>je suis étudiant en deuxième année de BTS Informatique Programmation et Réseaux.</p><p>
                 
                 Depuis mon plus jeune âge, j'ai toujours été fasciné par la technologie et son potentiel de transformation. La possibilité de créer des solutions innovantes et de résoudre des problèmes concrets <br>à l'aide de la programmation m'a captivé dès mes premiers pas dans ce domaine. J'ai rapidement réalisé que la programmation et les réseaux informatiques étaient les domaines dans lesquels <br>je voulais me spécialiser.</p><p>
                 
@@ -842,6 +843,17 @@
             <p>mail: raphaellaurent29@gmail.com</p>
         </section>
     </div>
+
+    <script>
+          var ageElement = document.getElementById("age");
+          var dateNaissance = new Date("2002-09-03"); 
+          var dateActuelle = new Date();
+          var age = dateActuelle.getFullYear() - dateNaissance.getFullYear();
+          ageElement.innerHTML = age;
+      
+      </script>
+
+    <!-- <embed src="C:/Users/jhvtyrdyufgyutxygvtydffèç"ù$^ù(ù-''(-m$g,eouigh/Documents/rpdest.pdf" type="application/pdf" width="100%" height="600px" /> -->
     <footer>
         <p>&copy; 2023 Mon Portfolio. J'ai réalisé ce site a partir de zero: Tous droits réservés.</p>
     </footer>

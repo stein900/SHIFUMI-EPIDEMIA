@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: 'Poppins';
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        /* En-tête */
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            margin-left: 0px;
+            font-style: italic;
+            /* font-family: 'Times New Roman', Times, serif; */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+        .logo {
+            float: left;
+            }
+        /* Navigation */
+        nav {
+            background-color: #666;
+            padding: 10px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        nav ul li {
+            display: inline-block;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+        }
+        
+        /* Section principale */
+        .main-section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .main-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .main-section:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        
+    </style>
+    <style>
+        .buttons-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0b530d;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #0b530d;
+    }
+    
+    .pdf-container {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+    }
+    
+    .pdf-container.show {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+
+    .modern-button {
+    border-radius: 5px;
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+    color: #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    a {
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    }
+    a:hover {
+    cursor: pointer;
+    color: #084200;
+    transition: color 0.3s ease-in-out;
+    }
+    .logo {
+      width: 64px; /* Adjust the width and height according to your logo's dimensions */
+      height: 64px;
+      margin-top: -52px;
+      margin-left: 0px;
+    }
+    .steinindd {
+        float: right;
+    width: 300px; /* Adjust the width and height according to your logo's dimensions */
+    height: 300px;
+    margin-top: 57px;
+    margin-right: 88px;
+    }
+    </style>
+<body>
+    
+    <header>
+        <h1>Mes rapport de stages</h1>
+        <img src="source/steinind.png" alt="Logo" class="logo">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="https://stein900.github.io/hub/Portfolio.html">Mon portfolio</a></li>
+        </ul>
+    </nav>
+    <div class="buttons-container">
+        <button class="modern-button" id="bouton1">Bouton 1</button>
+        <button class="modern-button" id="bouton2">Bouton 2</button>
+        <br><br><br><br>
+      </div>
+    
+      <div id="pdfContainer" class="pdf-container">
+        <embed id="pdfViewer" src="" type="application/pdf" width="100%" height="950px" />
+      </div>
+    
+      <script>
+        document.getElementById('bouton1').addEventListener('click', function() {
+      document.getElementById('pdfViewer').setAttribute('src', 'C:/Users/MS Computers/Documents/GitHub/hub/source/PDF/pdfValette.pdf');
+      showPDFContainer();
+    });
+    
+    document.getElementById('bouton2').addEventListener('click', function() {
+      document.getElementById('pdfViewer').setAttribute('src', 'C:/Users/MS Computers/Documents/GitHub/hub/source/PDF/pdfBTS.pdf');
+      showPDFContainer();
+    });
+    
+    function showPDFContainer() {
+      var pdfContainer = document.getElementById('pdfContainer');
+      pdfContainer.classList.add('show');
+    }
+    
+      </script>
+    <footer>
+        <p>&copy; 2023 Mon Portfolio. J'ai réalisé ce site a partir de zero: Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
