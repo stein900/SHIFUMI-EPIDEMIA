@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: 'Poppins';
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        /* En-tête */
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            margin-left: 0px;
+            font-style: italic;
+            /* font-family: 'Times New Roman', Times, serif; */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+        .logo {
+            float: left;
+            }
+        /* Navigation */
+        nav {
+            background-color: #666;
+            padding: 10px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        nav ul li {
+            display: inline-block;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+        }
+        
+        /* Section principale */
+        .main-section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .main-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .main-section:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        
+    </style>
+    <style>
+        @media (max-width: 768px) {
+
+    }
+        .container {
+          position: relative;
+          height: 1000px; 
+        }
+    
+        .logoPortfolio {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+          z-index: 9999;
+          width: 700px;
+            height: 700px;
+            margin: 880;
+            margin-left: 14px;
+            margin-top: -156px;
+        }
+        .logoPortfolio2 {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+          z-index: 9999;
+          width: 700px; 
+            height: 264px;
+            margin: 880;
+            margin-left: 50px;
+            margin-top: 550px;
+        }
+
+        .progress-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background-color: rgb(16, 92, 1);
+        transition: width 0.3s ease-in-out;
+        z-index: 9999;
+        }
+      </style>
+</head>
+<style>
+    .logo {
+      width: 64px; 
+      height: 64px;
+      margin-top: -52px;
+      margin-left: 0px;
+    }
+    .logooo {
+      width: 700px; 
+      height: 700px;
+      margin: 880;
+            margin-left: 29.69%;
+    }
+    .logoo {
+      width: 700px; 
+      height: 230px;
+      margin: 880;
+      margin-left: 29.69%;
+    }
+    .right-image {
+    float: right;
+    width: 300px; 
+    height: 300px;
+    margin-top: 20px;
+    }
+
+    .calculet {
+    float: right;
+    width: 300px; 
+    height: 300px;
+    margin-top: 8px;
+    }
+
+    .planum {
+    float: right;
+    width: 400px; 
+    height: 400px;
+    margin-top: 19px;
+    }
+
+    .shifumiE {
+    float: right;
+    width: 320px; 
+    height: 320px;
+    margin-top: 30px;
+    margin-right: 50px;
+    }
+
+    .dunkH {
+    float: right;
+    width: 320px;
+    height: 320px;
+    margin-top: 43px;
+    margin-right: 50px;
+    }
+
+    .Dexuiem {
+    float: right;
+    width: 530px; 
+    height: 380px;
+    margin-top: 7px;
+    margin-right: 50px;
+    }
+
+    .VahronC {
+    float: right;
+    width: 530px; 
+    height: 380px;
+    margin-top: 32px;
+    margin-right: 50px;
+    }
+
+    .GDTDS {
+    float: right;
+    width: 560px; 
+    height: 410px;
+    margin-top: 50px;
+    margin-right: 50px;
+    }
+
+    .CiscoC {
+    float: right;
+    width: 320px; 
+    height: 320px;
+    margin-top: 43px;
+    margin-right: 50px;
+    }
+
+
+    .steinindd {
+        float: right;
+    width: 300px;
+    height: 300px;
+    margin-top: 57px;
+    margin-right: 88px;
+    }
+
+        .image-grande {
+        max-width: 90%;
+        max-height: 90%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .thumbnail {
+        margin-bottom: 20px; 
+    }
+
+    #projets {
+        margin-left: 30px; 
+    }
+
+    .tmain-section {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+
+    opacity: 0;
+    transform: translateY(200px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tmain-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tmain-section:hover {
+    transform: scale(1.02);
+}
+  </style>
+
+<script>
+    document.addEventListener('copy', function (e) {
+        e.preventDefault();
+    });
+</script>
+
+<style>
+    #background-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+    
+    .content {
+        position: relative;
+        z-index: 1;
+    }
+</style>
+
+<style>
+        .modern-button {
+    border-radius: 5px;
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+    color: #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    a {
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    }
+    a:hover {
+    cursor: pointer;
+    color: #084200;
+    transition: color 0.3s ease-in-out;
+    }
+
+    htgftyf {
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    color: #ff0000;
+    }
+</style>
+<style>
+    #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .loader {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #025f12;
+        border-top: 5px solid #ffffff;
+        border-radius: 50%;
+        animation: spin 0.3s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+<style>
+        .parallax-container {
+            width: 100%;
+            height: 500lvh;
+            overflow: hidden;
+            perspective: 1px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .parallax-container::before {
+            content: "";
+            flex-grow: 1;
+        }
+
+        /* Reste de votre CSS pour les layers et les éléments internes */
+
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .layer-back {
+            transform: translateZ(-1px) scale(2);
+            background: url('parallax/background2.png') center/cover no-repeat;
+            background-size: 120%; /* Ajustez la taille de l'image ici */
+            background-position-y: top;
+        }
+
+        .layer-mid {
+            transform: translateZ(-2px) scale(2);
+            background: url('parallax/middle-ground.png') center/cover no-repeat;
+            background-size: 80%; /* Ajustez la taille de l'image ici */
+            background-position: 0px;
+            background-position-y: 23%;
+        }
+
+        .layer-mid2 {
+            transform: translateZ(-2px) scale(2);
+            background: url('parallax/middle-ground2.png') center/cover no-repeat;
+            background-size: 120%; /* Ajustez la taille de l'image ici */
+            background-position: 480px;
+            background-position-y: 25%;
+        }
+
+        .layer-text {
+            background: url('parallax/Text.png') center/cover no-repeat;
+            background-size: 80%; /* Ajustez la taille de l'image ici */
+            background-position-y: 6%;
+        }
+
+        .layer-text2 {
+            background: url('parallax/text2.png') center/cover no-repeat;
+            background-size: 80%; /* Ajustez la taille de l'image ici */
+            background-position-y: 95%;
+        }
+
+        .layer-text3 {
+            background: url('parallax/text3.png') center/cover no-repeat;
+            background-size: 8%; /* Ajustez la taille de l'image ici */
+            background-position-y: 100%;
+        }
+
+        .layer-cloud {
+            background: url('parallax/cloud.png') center/cover no-repeat;
+            background-size: contain; /* Ajustez la taille de l'image ici */
+            background-position-y: -8%;
+            background-position-x: center;
+            position: absolute; /* Utiliser position: absolute pour le nuage */
+            animation: moveCloud 10s linear infinite; /* Ajout d'une animation infinie */
+        }
+        .layer-cloud2 {
+            background: url('parallax/cloud2.png') center/cover no-repeat;
+            background-size: contain; /* Ajustez la taille de l'image ici */
+            background-position-y: -8%;
+            background-position-x: center;
+            position: absolute; /* Utiliser position: absolute pour le nuage */
+            animation: moveCloud 20s linear infinite; /* Ajout d'une animation infinie */
+            opacity: 0.68;
+        }
+        .layer-cloud {
+            background: url('parallax/cloud.png') center/cover no-repeat;
+            background-size: contain; /* Ajustez la taille de l'image ici */
+            background-position-y: -8%;
+            background-position-x: center;
+            position: absolute; /* Utiliser position: absolute pour le nuage */
+            animation: moveCloud 40s linear infinite; /* Ajout d'une animation infinie */
+        }
+
+        .layer-front {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 60%; /* Ajustez la taille de l'image ici */
+            background-position-y: 23%;
+            background-position-x: 45%;
+        }
+
+        .layer-front2 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 90%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 23%;
+            background-position-x: 645%;
+        }
+
+        .layer-front3 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 120%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 20%;
+            background-position-x: -125%;
+        }
+
+        .layer-front4 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 60%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 43%;
+            background-position-x: -50%;
+        }
+
+        .layer-front5 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 60%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 48%;
+            background-position-x: -25%;
+        }
+
+        .layer-front6 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 56%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 54%;
+            background-position-x: 0%;
+        }
+
+        .layer-front7 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 63%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 54%;
+            background-position-x: 15%;
+        }
+
+        .layer-front8 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 65%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 52%;
+            background-position-x: 60%;
+        }
+
+        .layer-front9 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 38%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 68%;
+            background-position-x: 130%;
+        }
+
+        .layer-front10 {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/foreground.png') center/cover no-repeat;
+            background-size: 57%; /* Ajustez la taille de l'image ici */
+            
+            background-position-y: 65%;
+            background-position-x: 160%;
+        }
+
+        .layer-blackBackground {
+            transform: translateZ(-3px) scale(2);
+            background: url('parallax/black.png') center/cover no-repeat;
+            background-size: 250%;
+            background-position-y: 79%;
+        }
+        .layer-blackBackground270 {
+            position: fixed;
+            top: 94%; /* Ajustez la position verticale selon vos besoins */
+            left: 0%; /* Ajustez la position horizontale selon vos besoins */
+            transform: translateX(-50%);
+            background: url('parallax/black270.png') center/cover no-repeat;
+            background-size: 500%;
+        }
+
+        .filler {
+            height: 310vh; /* Ajustez la hauteur comme nécessaire */
+        }
+
+
+        /* Animation personnalisée pour le nuage */
+        @keyframes moveCloud {
+            0% {
+                left: 100%;
+            }
+            100% {
+                left: -150%; /* Déplacez le nuage complètement hors de l'écran à gauche */
+            }
+        }
+</style>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+    // ...
+    const hideLoadingScreen = () => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.display = 'none';
+    };
+
+    window.addEventListener('load', hideLoadingScreen);
+});
+</script>
+
+<video id="background-video" autoplay loop muted>
+    <source src="source/videos/uyfydctycr.mp4" type="video/mp4">
+</video>
+<body>
+    <header>
+        <h1>Portfolio</h1>
+        <img src="source/steinind.png" alt="Logo" class="logo">
+    </header>
+    </head>
+
+    <div class="parallax-container">
+        <div class="parallax-layer layer-back"></div>
+        <div class="parallax-layer layer-cloud"></div>
+        <div class="parallax-layer layer-cloud2"></div>
+        <div class="parallax-layer layer-cloud"></div>
+        <div class="parallax-layer layer-mid"></div>
+        <div class="parallax-layer layer-mid2"></div>
+        <div class="parallax-layer layer-text"></div>
+        <div class="parallax-layer layer-front"></div>
+        <div class="parallax-layer layer-front2"></div>
+        <div class="parallax-layer layer-front3"></div>
+        <div class="parallax-layer layer-front4"></div>
+        <div class="parallax-layer layer-front5"></div>
+        <div class="parallax-layer layer-front6"></div>
+        <div class="parallax-layer layer-front7"></div>
+        <div class="parallax-layer layer-front8"></div>
+        <div class="parallax-layer layer-front9"></div>
+        <div class="parallax-layer layer-front10"></div>
+        <div class="parallax-layer layer-blackBackground"></div>
+        <div class="parallax-layer layer-blackBackground270"></div>
+        <a href="https://stein900.github.io/hub/Portfolio.html" target="_blank" rel="noopener noreferrer" class="parallax-layer layer-text2"></a>
+        <a href="https://stein900.github.io/hub/Portfolio.html" target="_blank" rel="noopener noreferrer" class="parallax-layer layer-text3"></a>
+        <div class="filler"></div>
+    </div>
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <div class="progress-bar"></div>
+    
+    
+    <style>
+        .copy-icon {
+          display: inline-block;
+          width: 35px;
+          height: 35px;
+         
+          background-image: url(source/copy_.png);
+          background-size: cover;
+          cursor: pointer;
+          margin-left: 5px;
+        }
+      </style>
+    <div class="tmain-section">
+        <img src="source/Police/contact.png" alt="Logo" class="logoo">
+        </div>
+    </div>
+    <div class="main-section">
+        <section id="contact">
+            Mon adresse e-mail : 
+            <span id="email">raphaellaurent29@mail.com</span>
+            <span class="copy-icon" onclick="copyToClipboard('email')"></span>
+        </section>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+          var emailElement = document.getElementById(elementId);
+          var emailText = emailElement.innerText || emailElement.textContent;
+    
+          var tempInput = document.createElement('input');
+          tempInput.value = emailText;
+          document.body.appendChild(tempInput);
+    
+          tempInput.select();
+          tempInput.setSelectionRange(0, 99999); // Pour les mobiles
+    
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+    
+          alert('Adresse e-mail copiée dans le presse-papiers : ' + emailText);
+        }
+      </script>
+          
+    <script>
+        // Définir la position initiale du nuage en dehors de l'écran à gauche
+        let cloudPositionX = -500; // Position horizontale initiale du nuage
+        let cloudPositionY = Math.floor(Math.random() * 20) + 20; // Hauteur aléatoire
+        let cloudSpeedX = 0.1; // Réduisez cette valeur pour ralentir le nuage
+    
+        function moveCloud() {
+            const cloud = document.querySelector(".layer-cloud");
+    
+            // Mettre à jour la position du nuage en fonction de la vitesse
+            cloudPositionX += cloudSpeedX;
+    
+            // Si le nuage sort de l'écran à droite, réinitialiser sa position à gauche
+            if (cloudPositionX > 500) {
+                cloudPositionX = -500; // Réinitialiser la position du nuage à gauche
+                cloudPositionY = Math.floor(Math.random() * 160) + 20;
+            }
+    
+            // Appliquer la nouvelle position au nuage
+            cloud.style.transform = `translate3d(${cloudPositionX}vw, ${cloudPositionY}px, 0)`;
+    
+            // Appeler la fonction moveCloud à intervalles réguliers pour animer le nuage
+            requestAnimationFrame(moveCloud);
+        }
+
+                // Définir la position initiale du nuage en dehors de l'écran à gauche
+        let cloudPositionX2 = 50; // Position horizontale initiale du nuage
+        let cloudPositionY2 = Math.floor(Math.random() * 20) + 20; // Hauteur aléatoire
+        let cloudSpeedX2 = -0.01; // Réduisez cette valeur pour ralentir le nuage
+    
+        function moveCloud() {
+            const cloud2 = document.querySelector(".layer-cloud2");
+    
+            // Mettre à jour la position du nuage en fonction de la vitesse
+            cloudPositionX2 += cloudSpeedX2;
+    
+            // Si le nuage sort de l'écran à droite, réinitialiser sa position à gauche
+            if (cloudPositionX2 < -250) {
+                cloudPositionX2 = 250; // Réinitialiser la position du nuage à gauche
+                cloudPositionY2 = Math.floor(Math.random() * 160) + 20;
+            }
+    
+            // Appliquer la nouvelle position au nuage
+            cloud2.style.transform = `translate3d(${cloudPositionX2}vw, ${cloudPositionY2}px, 0)`;
+    
+            // Appeler la fonction moveCloud à intervalles réguliers pour animer le nuage
+            requestAnimationFrame(moveCloud);
+        }
+    
+        // Démarrer l'animation du nuage
+        moveCloud();
+    
+        document.addEventListener("scroll", function () {
+            const yOffset = window.pageYOffset;
+            const layers = document.querySelectorAll(".parallax-layer");
+    
+            layers.forEach((layer, index) => {
+                let speed = index * 0.3;
+                if (layer.classList.contains("layer-cloud")) {
+                    speed = 0; // Arrêtez le nuage lors du défilement
+                }
+                const yPos = -(yOffset * speed);
+                layer.style.transform = `translate3d(0px, ${yPos}px, 0)`;
+            });
+        });
+    </script>
+    <!-- <embed src="C:/Users/jhvtyrdyufgyutxygvtydffèç"ù$^ù(ù-''(-m$g,eouigh/Documents/rpdest.pdf" type="application/pdf" width="100%" height="600px" /> -->
+    <footer>
+        <p>&copy; 2023 Mon Portfolio. J'ai réalisé ce site a partir de zero: Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
