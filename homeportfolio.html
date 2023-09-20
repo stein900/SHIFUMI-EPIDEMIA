@@ -15,6 +15,11 @@
             alert("Votre navigateur n'est pas pris en charge par ce site web.");
         }
     </script>
+        <script>
+            if (/Mobi/.test(navigator.userAgent)) {
+                window.location.href = "page-non-autorisee.html";
+            }
+        </script>
     <style>
         /* Styles généraux */
         body {
