@@ -184,15 +184,15 @@
       var pdfContainer = document.getElementById('pdfContainer');
       pdfContainer.classList.add('show');
     }
+    
     window.addEventListener('beforeunload', function(event) {
-  event.preventDefault();
-  event.returnValue = '';  // Cette ligne est nécessaire pour la compatibilité avec certains navigateurs anciens
-  // Afficher un message d'avertissement personnalisé
-  var message = "au revoir et à bientôt :)";
-  event.returnValue = message;  // Cette ligne est nécessaire pour afficher le message dans certains navigateurs
-  alert(message);
-  return message;
-});
+      event.preventDefault();
+      event.returnValue = '';  // Cette ligne est nécessaire pour la compatibilité avec certains navigateurs anciens
+      // Afficher un message d'avertissement personnalisé
+      var message = "au revoir et à bientôt :)";
+      event.returnValue = message;  // Cette ligne est nécessaire pour afficher le message dans certains navigateurs
+      return message;
+  });
 
       </script>
     <footer>
