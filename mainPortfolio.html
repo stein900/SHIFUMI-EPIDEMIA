@@ -10,7 +10,7 @@
         if (userAgent.indexOf("Firefox") !== -1) {
             alert("Votre navigateur est Firefox. Certaines fonctionnalités peuvent ne pas être prises en charge.");
         } else if (userAgent.indexOf("Chrome") !== -1) {
-            alert("Votre navigateur est Chrome. Certaines fonctionnalités peuvent ne pas être prises en charge.");
+            alert("Votre navigateur n'est pas pris en charge par ce site web. Certaines fonctionnalités peuvent ne pas être prises en charge.");
         } else {
             alert("Votre navigateur n'est pas pris en charge par ce site web.");
         }
@@ -156,7 +156,7 @@
     .logo {
       width: 64px; 
       height: 64px;
-      margin-top: -52px;
+      margin-top: -17px;
       margin-left: 0px;
     }
     .logooo {
@@ -336,7 +336,7 @@
     }
     a:hover {
     cursor: pointer;
-    color: #084200;
+    color: #8d6204;
     transition: color 0.3s ease-in-out;
     }
 
@@ -363,7 +363,7 @@
     .loader {
         width: 50px;
         height: 50px;
-        border: 5px solid #025f12;
+        border: 5px solid #724f03;
         border-top: 5px solid #ffffff;
         border-radius: 50%;
         animation: spin 0.3s linear infinite;
@@ -601,10 +601,29 @@
 <!-- <video id="background-video" autoplay loop muted>
     <source src="source/videos/uyfydctycr.mp4" type="video/mp4">
 </video> -->
+<style>
+
+.right-textj {
+    position: absolute;
+    top: 30px; /* Assurez-vous d'ajouter "px" après la valeur pour spécifier les pixels */
+    right: 5%; /* Déplacez le texte de 10% vers la droite */
+    margin: 0;
+    font-size: 16px;
+}
+
+.linkj {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+</style>
 <body>
     <header>
-        <h1>Portfolio</h1>
+        <div id="text"div> 
         <img src="source/steinind.png" alt="Logo" class="logo">
+        <p class="right-textj"><a href="https://stein900.github.io/hub/LoginPage.html" class="linkj">S'identifier</a></p>
     </header>
     </head>
 
@@ -749,6 +768,28 @@
             });
         });
     </script>
+    <script>
+        var string = "Mon Portfolio";
+        var array = string.split("");
+        var timer;
+
+        function frameLooper () {
+            if (array.length > 0) {
+                document.getElementById("text").innerHTML += array.shift();
+            } else {
+                clearTimeout(timer);
+                    }
+            loopTimer = setTimeout('frameLooper()',120);
+
+        }
+        frameLooper();
+    </script>
+    <style>
+        #text {
+        font-size: 1.6vw;
+        font-style: italic;
+        }
+    </style>
     <!-- <embed src="C:/Users/jhvtyrdyufgyutxygvtydffèç"ù$^ù(ù-''(-m$g,eouigh/Documents/rpdest.pdf" type="application/pdf" width="100%" height="600px" /> -->
     <footer>
         <p>&copy; 2023 Mon Portfolio. J'ai réalisé ce site a partir de zero: Tous droits réservés.</p>
