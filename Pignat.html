@@ -42,9 +42,9 @@
         /* Styles pour le formulaire */
         .form-box {
             background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             display: flex;
             margin-top: 8%;
             margin-bottom: 25%;
@@ -201,6 +201,29 @@
             font-size: 1em;
             font-weight: 600;
         }
+/* Styles pour la liste déroulante */
+.order-select {
+    border-radius: 10px; /* Arrondir les bords */
+    width: 13%;
+    height: 40px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+    color: #fff;
+    font-size: 0.7em;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+/* Forcer la couleur du texte lorsque la liste déroulante est ouverte */
+.order-select option {
+    border-radius: 20px !important;
+    color: #000; /* Couleur du texte dans la liste déroulante ouverte (noir dans cet exemple) */
+}
+
+
+
+
 
     </style>
 </head>
