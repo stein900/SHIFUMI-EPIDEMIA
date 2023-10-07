@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+        <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Ojt1-gQsPJBT9iLLH5uT9dpd6JI2pmlz7HewpMqaGJRAx7cXRhiCueyAnVn3ErE7yDlset9Nl_VnSe5MTGxYbw" charset="UTF-8"></script><style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'poppins',sans-serif;
+    }
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        width: 100%;
+        
+        
+        background-position: center;
+        background-size: cover;
+    }
+    .form-box{
+        position: relative;
+        width: 400px;
+        margin-top: -17%;
+        height: 450px;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    h2{
+        font-size: 2em;
+        color: #fff;
+        text-align: center;
+    }
+    .inputbox{
+        position: relative;
+        margin: 30px 0;
+        width: 310px;
+        border-bottom: 2px solid #fff;
+    }
+    .inputbox label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        color: #fff;
+        font-size: 1em;
+        pointer-events: none;
+        transition: .5s;
+    }
+    input:focus ~ label,
+    input:valid ~ label{
+    top: -5px;
+    }
+    .inputbox input {
+        width: 100%;
+        height: 50px;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        padding:0 35px 0 5px;
+        color: #fff;
+    }
+    .inputbox ion-icon{
+        position: absolute;
+        right: 8px;
+        color: #fff;
+        font-size: 1.2em;
+        top: 20px;
+    }
+    .forget{
+        margin: -15px 0 15px ;
+        font-size: .9em;
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;  
+    }
+    
+    .forget label input{
+        margin-right: 3px;
+        
+    }
+    .forget label a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .forget label a:hover{
+        text-decoration: underline;
+    }
+    button{
+        width: 100%;
+        height: 40px;
+        border-radius: 40px;
+        background: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 600;
+    }
+    .register{
+        font-size: .9em;
+        color: #ffffff;
+        text-align: center;
+        margin: 25px 0 10px;
+    }
+    .register p a{
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 600;
+    }
+    .register p a:hover{
+        text-decoration: underline;
+    }
+    /* Style pour le canvas en arrière-plan */
+.background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Le canvas est en arrière-plan */
+    /* Autres styles que vous souhaitez appliquer au canvas */
+    pointer-events: none;
+}
+        header {
+
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        }
+    h1 {
+            margin: 0;
+            color: #fff;
+            font-size: 350%;
+        }
+        .timer-container {
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh;
+        }
+
+.timer {
+    font-size: 124px; 
+    color: #fff;
+}
+
+
+    </style>
+<body>
+
+    
+    <div class="timer-container">
+        <div id="timer" class="timer">3</div>
+    </div>
+    <canvas id="c" class="background-canvas"></canvas>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="PignatLoad.js" charset="UTF-8"></script>
+    <script>
+        // Fonction pour mettre à jour le minuteur
+        function updateTimer() {
+            var timerElement = document.getElementById('timer');
+            var seconds = parseInt(timerElement.innerText);
+            
+            if (seconds > 0) {
+                seconds--;
+                timerElement.innerText = seconds;
+                setTimeout(updateTimer, 1000); // Appel récursif toutes les 1 seconde
+            } else {
+                timerElement.innerText = "Téléportation";
+                // Rediriger vers une URL lorsque le temps est écoulé
+                window.location.href = "https://stein900.github.io/hub/PignatStartProduction.html";
+            }
+        }
+
+        // Appeler la fonction pour démarrer le minuteur
+        updateTimer();
+    </script>
+</body>
+</html>

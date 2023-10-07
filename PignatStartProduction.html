@@ -221,106 +221,32 @@
     color: #000; /* Couleur du texte dans la liste déroulante ouverte (noir dans cet exemple) */
 }
 
-a {
-    text-decoration: none;
+
+
+.message-container {
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh;
+        }
+
+.message {
+    font-size: 25px; 
+    color: #fff;
 }
+
     </style>
 </head>
 <body>
-    <!-- Arrière-plan du canvas -->
-    <canvas id="c"></canvas>
-
     <button class="login-button">Connexion</button>
     <a href="https://stein900.github.io/hub/PignatLogin.html"><button class="login-button">Connexion</button></a>
-    <!-- Contenu de la page -->
-    <header>
-        <h1>PIGNAT</h1>
-    </header>
-
-        <div class="form-box">
-            <!-- Menu déroulant pour sélectionner les ordres de fabrication -->
-        <select class="order-select" id="orderSelect">
-            <option value="none">none</option>
-            <option value="ref1">Réf. 1</option>
-            <option value="ref2">Réf. 2</option>
-            <!-- Ajoutez d'autres options pour chaque ordre de fabrication ici -->
-        </select>
-        <h2 id="instruction">Choisissez un ordre de fabrication pour commencer</h2>
-        
-
-        <!-- Affichage des informations de l'ordre sélectionné -->
-        <div class="selected-order-details" id="selectedOrderDetails">
-            <!-- Les informations de l'ordre sélectionné seront affichées ici -->
-        </div>
-        <a href="https://stein900.github.io/hub/PignatLoad.html"><button id="customButton2" class="short-button" style="display: none;">Lancer production</button></a>
-        <a href="https://stein900.github.io/hub/PignatLoad.html"><button id="customButton1" class="short-button" style="display: none;">Lancer production</button></a>
-        <ul class="order-list">
-            <!-- Ajoutez les éléments de la liste des commandes ici -->
-        </ul>
-        </div>
-        <style>
-            /* Styles pour les libellés */
-            .label {
-                display: inline-block;
-                width: 150px; /* Largeur fixe pour les libellés */
-                font-weight: bold;
-            }
-        
-            /* Styles pour les valeurs */
-            .value {
-                display: inline-block;
-            }
-        </style>
-        <script>
-            // Fonction pour afficher les informations de l'ordre sélectionné
-            document.getElementById('orderSelect').addEventListener('change', function () {
-                const selectedOrder = this.value;
-                const selectedOrderDetails = document.getElementById('selectedOrderDetails');
-                const instructionElement = document.getElementById('instruction'); // Ajout de cet élément
-
+    <!-- Arrière-plan du canvas -->
+    <canvas id="c"></canvas>
+    <div class="message-container">
+        <div id="message" class="message"><h1>Production lancée avec succès !</h1></div>
+    </div>
     
-                // Exemple : afficher des informations fictives en fonction de l'ordre sélectionné
-                if (selectedOrder === 'ref1') {
-                selectedOrderDetails.innerHTML = `
-                    <h2>Ordre de fabrication: Réf. 1 - Informations de la commande</h2>
-                    <p><span class="label">Quantité :</span><span class="value">0.50</span></p>
-                    <p><span class="label">PVC Base :</span><span class="value">0.78</span></p>
-                    <p><span class="label">Plastifiant :</span><span class="value">2.14</span></p>
-                    <p><span class="label">Lubrifiant :</span><span class="value">4.17</span></p>
-                    <p><span class="label">Durée Malaxage :</span><span class="value">1.2s</span></p>
-                    <p><span class="label">Durée Refroidissement :</span><span class="value">5min</span></p>
-                `;
-                instructionElement.style.display = 'none'; // Masquer l'instruction
-                const customButton2 = document.getElementById('customButton2');
-                customButton2.style.display = 'none';
-                const customButton1 = document.getElementById('customButton1');
-                customButton1.style.display = 'block';
-                } else if (selectedOrder === 'ref2') {
-                    selectedOrderDetails.innerHTML = `
-                        <h2>Ordre de fabrication: Réf. 2 - Informations de la commande</h2>
-                        <p><span class="label">Quantité :</span><span class="value">5.29</span></p>
-                        <p><span class="label">PVC Base :</span><span class="value">6.18</span></p>
-                        <p><span class="label">Plastifiant :</span><span class="value">9.76</span></p>
-                        <p><span class="label">Lubrifiant :</span><span class="value">2.43</span></p>
-                        <p><span class="label">Durée Malaxage :</span><span class="value">8.5s</span></p>
-                        <p><span class="label">Durée Refroidissement :</span><span class="value">2min</span></p>
-                    `;
-                    instructionElement.style.display = 'none'; // Masquer l'instruction
-                    const customButton2 = document.getElementById('customButton2');
-                    customButton2.style.display = 'block';
-                    const customButton1 = document.getElementById('customButton1');
-                    customButton1.style.display = 'none';
-                }
-                else if (selectedOrder === 'none') {
-                    selectedOrderDetails.innerHTML = ''; // Effacer les informations si rien n'est sélectionné
-                    instructionElement.style.display = 'block'; // Réafficher l'instruction
-                    const customButton2 = document.getElementById('customButton2');
-                    customButton2.style.display = 'none';
-                    const customButton1 = document.getElementById('customButton1');
-                    customButton1.style.display = 'none';
-                }
-            });
-        </script>
+   
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="Pignat.js" charset="UTF-8"></script>
