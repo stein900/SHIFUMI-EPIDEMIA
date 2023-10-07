@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pignat</title>
+    <link rel="stylesheet" href="Pignat.css">
+    <style>
+        /* Styles pour l'arrière-plan du canvas */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f0f0f0; /* Couleur d'arrière-plan */
+        }
+
+        #c {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Styles pour le contenu de la page */
+        header {
+
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 15px;
+            margin: 0;
+            color: #fff;
+            font-size: 150%;
+        }
+
+
+        /* Styles pour le formulaire */
+        .form-box {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            display: flex;
+            margin-top: 8%;
+            margin-bottom: 25%;
+            margin-left: 28%;
+            margin-right: 28%;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 80%;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #fff;
+            font-size: 50%;
+        }
+
+        .inputbox {
+            position: relative;
+            margin: 20px 0;
+            width: 310px;
+            border-bottom: 2px solid #fff;
+        }
+
+        .inputbox label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 1em;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label {
+            top: -5px;
+        }
+
+        .inputbox input {
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            padding: 0 35px 0 5px;
+            color: #fff;
+        }
+
+        .inputbox ion-icon {
+            position: absolute;
+            right: 8px;
+            color: #fff;
+            font-size: 1.2em;
+            top: 20px;
+        }
+
+        .forget {
+            margin: -15px 0 15px;
+            font-size: .9em;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;  
+        }
+
+        .forget label input {
+            margin-right: 3px;
+        }
+
+        .forget label a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .forget label a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .register {
+            font-size: .9em;
+            color: #000000;
+            text-align: center;
+            margin: 25px 0 10px;
+        }
+
+        .register p a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .register p a:hover {
+            text-decoration: underline;
+        }
+        button{
+        width: 100%;
+        height: 40px;
+        border-radius: 40px;
+        background: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 600;
+    }
+        .short-button {
+        width: 350px; /* Définissez la largeur souhaitée */
+        height: 40px; /* Définissez la hauteur souhaitée */
+        border-radius: 40px;
+        background: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 0.7em !important;
+        font-weight: 0.1 !important;
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Arrière-plan du canvas -->
+    <canvas id="c"></canvas>
+
+    <!-- Contenu de la page -->
+    <header>
+        <h1>PIGNAT</h1>
+    </header>
+
+        <div class="form-box">
+            <!-- Menu déroulant pour sélectionner les ordres de fabrication -->
+        <select class="order-select" id="orderSelect">
+            <option value="none">none</option>
+            <option value="ref1">Réf. 1</option>
+            <option value="ref2">Réf. 2</option>
+            <!-- Ajoutez d'autres options pour chaque ordre de fabrication ici -->
+        </select>
+        <h2 id="instruction">Choisissez un ordre de fabrication pour commencer</h2>
+        
+
+        <!-- Affichage des informations de l'ordre sélectionné -->
+        <div class="selected-order-details" id="selectedOrderDetails">
+            <!-- Les informations de l'ordre sélectionné seront affichées ici -->
+        </div>
+        <button id="customButton2" class="short-button" style="display: none;">Lancer production</button>
+        <button id="customButton1" class="short-button" style="display: none;">Lancer production</button>
+        <ul class="order-list">
+            <!-- Ajoutez les éléments de la liste des commandes ici -->
+        </ul>
+        </div>
+        <style>
+            /* Styles pour les libellés */
+            .label {
+                display: inline-block;
+                width: 150px; /* Largeur fixe pour les libellés */
+                font-weight: bold;
+            }
+        
+            /* Styles pour les valeurs */
+            .value {
+                display: inline-block;
+            }
+        </style>
+        <script>
+            // Fonction pour afficher les informations de l'ordre sélectionné
+            document.getElementById('orderSelect').addEventListener('change', function () {
+                const selectedOrder = this.value;
+                const selectedOrderDetails = document.getElementById('selectedOrderDetails');
+                const instructionElement = document.getElementById('instruction'); // Ajout de cet élément
+
+    
+                // Exemple : afficher des informations fictives en fonction de l'ordre sélectionné
+                if (selectedOrder === 'ref1') {
+                selectedOrderDetails.innerHTML = `
+                    <h2>Ordre de fabrication: Réf. 1 - Informations de la commande</h2>
+                    <p><span class="label">Quantité :</span><span class="value">0.50</span></p>
+                    <p><span class="label">PVC Base :</span><span class="value">0.78</span></p>
+                    <p><span class="label">Plastifiant :</span><span class="value">2.14</span></p>
+                    <p><span class="label">Lubrifiant :</span><span class="value">4.17</span></p>
+                    <p><span class="label">Durée Malaxage :</span><span class="value">1.2s</span></p>
+                    <p><span class="label">Durée Refroidissement :</span><span class="value">5min</span></p>
+                `;
+                instructionElement.style.display = 'none'; // Masquer l'instruction
+                const customButton2 = document.getElementById('customButton2');
+                customButton2.style.display = 'none';
+                const customButton1 = document.getElementById('customButton1');
+                customButton1.style.display = 'block';
+                } else if (selectedOrder === 'ref2') {
+                    selectedOrderDetails.innerHTML = `
+                        <h2>Ordre de fabrication: Réf. 2 - Informations de la commande</h2>
+                        <p><span class="label">Quantité :</span><span class="value">5.29</span></p>
+                        <p><span class="label">PVC Base :</span><span class="value">6.18</span></p>
+                        <p><span class="label">Plastifiant :</span><span class="value">9.76</span></p>
+                        <p><span class="label">Lubrifiant :</span><span class="value">2.43</span></p>
+                        <p><span class="label">Durée Malaxage :</span><span class="value">8.5s</span></p>
+                        <p><span class="label">Durée Refroidissement :</span><span class="value">2min</span></p>
+                    `;
+                    instructionElement.style.display = 'none'; // Masquer l'instruction
+                    const customButton2 = document.getElementById('customButton2');
+                    customButton2.style.display = 'block';
+                    const customButton1 = document.getElementById('customButton1');
+                    customButton1.style.display = 'none';
+                }
+                else if (selectedOrder === 'none') {
+                    selectedOrderDetails.innerHTML = ''; // Effacer les informations si rien n'est sélectionné
+                    instructionElement.style.display = 'block'; // Réafficher l'instruction
+                    const customButton2 = document.getElementById('customButton2');
+                    customButton2.style.display = 'none';
+                    const customButton1 = document.getElementById('customButton1');
+                    customButton1.style.display = 'none';
+                }
+            });
+        </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="Pignat.js" charset="UTF-8"></script>
+</body>
+</html>
