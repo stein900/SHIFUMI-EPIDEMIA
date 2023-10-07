@@ -46,6 +46,19 @@ window.addEventListener('load', function() {
         particles[i] = randomizeParticle(new Particle());
         particles[i].z -= 500 * Math.random();
     }
+
+    document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    }, false);
+    
+    document.addEventListener('mousedown', function(e) {
+        targetSpeed = BOOST_SPEED;
+    }, false);
+    
+    document.addEventListener('mouseup', function(d) {
+        targetSpeed = DEFAULT_SPEED;
+    }, false);
     
         seconds = 1; // Réinitialisez le compteur de temps
         updateTimer();
