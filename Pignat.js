@@ -13,9 +13,9 @@ var speed = DEFAULT_SPEED;
 var targetSpeed = DEFAULT_SPEED;
 var particles = [];
 
-let red = 5;
-let green = 51;
-let blue = 101;
+let red = 90;
+let green = 85;
+let blue = 7;
 
 let redF = false;
 let greenF = false;
