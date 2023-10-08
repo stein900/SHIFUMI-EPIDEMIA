@@ -13,6 +13,14 @@ var speed = DEFAULT_SPEED;
 var targetSpeed = DEFAULT_SPEED;
 var particles = [];
 
+let red = 5;
+let green = 51;
+let blue = 101;
+
+let redF = false;
+let greenF = false;
+let blueF = false;
+
 window.addEventListener('load', function() {
     canvas = document.getElementById('c');
     
@@ -48,8 +56,50 @@ window.addEventListener('load', function() {
 targetSpeed = BOOST_SPEED;
 
 function loop() {
+    if(!redF){
+        red -= 0.5;
+    }
+    if(redF){
+        red += 0.2;
+    }
+    if(red <= 4){
+        redF = true;
+    }
+    if(red >= 150){
+        redF = false;
+    }
+
+    if(!greenF){
+        green -= 0.6;
+    }
+    if(greenF){
+        green += 0.3;
+    }
+    if(green <= 4){
+        greenF = true;
+        green = 6;
+
+    }
+    if(green >= 150){
+        greenF = false;
+        green = 149;
+    }
+
+    if(!blueF){
+        blue -= 0.4;
+    }
+    if(blueF){
+        blue += 0.7;
+    }
+    if(blue <= 4){
+        blueF = true;
+    }
+    if(blue >= 150){
+        blueF = false;
+    }
+
     context.save();
-    context.fillStyle = 'rgb(0, 51, 102)';
+    context.fillStyle = `rgb(${Math.round(red)}, ${Math.round(green)}, ${Math.round(blue)})`;
     context.fillRect(0, 0, canvasWidth, canvasHeight);
     context.restore(); 
     speed += (targetSpeed - speed) * 0.01;
