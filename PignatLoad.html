@@ -152,21 +152,73 @@
     color: #fff;
 }
 
+body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #progress-container {
+            width: 80%;
+            max-width: 400px; /* Définissez une largeur maximale si nécessaire */
+            height: 5%;
+            background-color: #ccc;
+            padding: 10px; /* Ajoutez de l'espace intérieur */
+        }
+
+
+        #progress {
+            width: 0;
+            height: 70px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 10px; /* Arrondir les bords */
+            background: transparent;
+            border: 2px solid rgba(43, 168, 11, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(7px);
+            font-weight: 0.1 !important;
+            font-size: 350%;
+            line-height: 67px; /* Ajustez ceci pour centrer le texte verticalement */
+            box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+        }
 
     </style>
 <body>
 
-    
-    <div class="timer-container">
-        <div id="timer" class="timer">3</div>
-    </div>
     <canvas id="c" class="background-canvas"></canvas>
+
+        <div id="progress" >0%</div>
+
 
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="PignatLoad.js" charset="UTF-8"></script>
     <script>
+        function updateProgress() {
+            const progressBar = document.getElementById("progress");
+            let percent = 0;
+
+            const interval = setInterval(() => {
+                if (percent >= 100) {
+                    clearInterval(interval);
+                    window.location.href = "https://stein900.github.io/hub/PignatStartProduction.html";
+                } else {
+                    percent++;
+                    progressBar.style.width = percent + "%";
+                    progressBar.innerText = percent + "%";
+                }
+            }, 30); // Change this interval to control the speed of the countdown
+        }
+
+        updateProgress();
+    </script>
+    <!-- <script>
         // Fonction pour mettre à jour le minuteur
         function updateTimer() {
             var timerElement = document.getElementById('timer');
@@ -185,6 +237,6 @@
 
         // Appeler la fonction pour démarrer le minuteur
         updateTimer();
-    </script>
+    </script> -->
 </body>
 </html>
